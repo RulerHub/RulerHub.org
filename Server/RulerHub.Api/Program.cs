@@ -51,6 +51,20 @@ builder.Services.AddDbContext<ApplicationDbContext>(option =>
     option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
+// Uncoment this for docker use
+
+//builder.Services.AddDbContext<ApplicationDbContext>(options =>
+//{
+//    var connectionString = builder.Configuration.GetConnectionString("DockerConnection");
+//    if (!builder.Environment.IsDevelopment())
+//    {
+//        var password = Environment.GetEnvironmentVariable("MSSQL_SA_PASSWORD");
+//        connectionString = string.Format(connectionString, password);
+//    }
+//    options.UseSqlServer(connectionString);
+
+//});
+
 // scaffold services
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<IItemService, ItemService>();
