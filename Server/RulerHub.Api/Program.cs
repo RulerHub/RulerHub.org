@@ -10,6 +10,8 @@ using RulerHub.Services.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddServiceDefaults();
+
 builder.Services.AddSwaggerGen(option =>
 {
     option.SwaggerDoc("v1", new OpenApiInfo { Title = "RulerHub Api", Version = "V 0.0.1", Description = "RulerHubStore Api de de tienda de contenidos clasificados, en desarrollo" });
@@ -103,6 +105,8 @@ builder.Services.AddAuthentication(option =>
 });
 
 var app = builder.Build();
+
+app.MapDefaultEndpoints();
 
 using (var scope = app.Services.CreateScope())
 {
