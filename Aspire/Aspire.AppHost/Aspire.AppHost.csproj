@@ -16,8 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Server\RulerHub.Api\RulerHub.Api.csproj" />
-    <ProjectReference Include="..\..\Web\RulerHub.WebAdmin\RulerHub.WebAdmin.csproj" />
+    <ProjectReference Include="..\..\Web\RulerHub\RulerHub.csproj" />
   </ItemGroup>
 
 </Project>
