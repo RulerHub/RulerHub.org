@@ -3,15 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RulerHub.Api", "Server\RulerHub.Api\RulerHub.Api.csproj", "{CFE10BB9-DEA7-4664-875A-25753BBBB2CA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.AppHost", "Aspire\Aspire.AppHost\Aspire.AppHost.csproj", "{A2401A55-24F9-4A97-8E56-A3EF401EDBA8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RulerHub.Data", "Server\RulerHub.Data\RulerHub.Data.csproj", "{0679C8B6-FD94-4A35-B794-FA76AA427ECB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.ServiceDefaults", "Aspire\Aspire.ServiceDefaults\Aspire.ServiceDefaults.csproj", "{5C09491A-BE23-475E-8E36-DCB8384EDAEF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RulerHub.Shared", "Server\RulerHub.Shared\RulerHub.Shared.csproj", "{FD06DBC1-AFAE-460B-9B9A-3316F8B30F7E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RulerHub.Services", "Server\RulerHub.Services\RulerHub.Services.csproj", "{79AA8451-8ED5-42F8-A702-416F83E71F65}"
-EndProject
-Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{184730DB-BAE5-410E-B1CF-7C903098093D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulerHub", "Web\RulerHub\RulerHub.csproj", "{31548302-B7A6-48D9-99DE-A5C438941776}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,26 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CFE10BB9-DEA7-4664-875A-25753BBBB2CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CFE10BB9-DEA7-4664-875A-25753BBBB2CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CFE10BB9-DEA7-4664-875A-25753BBBB2CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CFE10BB9-DEA7-4664-875A-25753BBBB2CA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0679C8B6-FD94-4A35-B794-FA76AA427ECB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0679C8B6-FD94-4A35-B794-FA76AA427ECB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0679C8B6-FD94-4A35-B794-FA76AA427ECB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0679C8B6-FD94-4A35-B794-FA76AA427ECB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD06DBC1-AFAE-460B-9B9A-3316F8B30F7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD06DBC1-AFAE-460B-9B9A-3316F8B30F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD06DBC1-AFAE-460B-9B9A-3316F8B30F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD06DBC1-AFAE-460B-9B9A-3316F8B30F7E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{79AA8451-8ED5-42F8-A702-416F83E71F65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{79AA8451-8ED5-42F8-A702-416F83E71F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{79AA8451-8ED5-42F8-A702-416F83E71F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{79AA8451-8ED5-42F8-A702-416F83E71F65}.Release|Any CPU.Build.0 = Release|Any CPU
-		{184730DB-BAE5-410E-B1CF-7C903098093D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{184730DB-BAE5-410E-B1CF-7C903098093D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{184730DB-BAE5-410E-B1CF-7C903098093D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{184730DB-BAE5-410E-B1CF-7C903098093D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2401A55-24F9-4A97-8E56-A3EF401EDBA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2401A55-24F9-4A97-8E56-A3EF401EDBA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2401A55-24F9-4A97-8E56-A3EF401EDBA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2401A55-24F9-4A97-8E56-A3EF401EDBA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C09491A-BE23-475E-8E36-DCB8384EDAEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C09491A-BE23-475E-8E36-DCB8384EDAEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C09491A-BE23-475E-8E36-DCB8384EDAEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C09491A-BE23-475E-8E36-DCB8384EDAEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31548302-B7A6-48D9-99DE-A5C438941776}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31548302-B7A6-48D9-99DE-A5C438941776}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31548302-B7A6-48D9-99DE-A5C438941776}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31548302-B7A6-48D9-99DE-A5C438941776}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
