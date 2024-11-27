@@ -1,49 +1,28 @@
 ﻿@page "/settings"
+
+@layout ManageLayout
 @attribute [Authorize]
 
-<PageTitle>Settings</PageTitle>
+@inject IStringLocalizer<Lang> local
 
-<FluentLabel Typo="Typography.H4">Settings</FluentLabel>
-
-<FluentDivider />
-
-<FluentDesignTheme @bind-Mode="@Mode"
-                   @bind-OfficeColor="@OfficeColor"
-                   StorageName="theme" />
+<PageTitle>@local["MenuSettings"]</PageTitle>
 
 <div style="min-height: 250px;">
-    <FluentGrid>
-        <FluentGridItem>
-            <FluentSelect Label="Theme"
-                          Width="250px"
-                          Items="@(Enum.GetValues<DesignThemeModes>())"
-                          @bind-SelectedOption="@Mode" />
-        </FluentGridItem>
 
-        <FluentGridItem>
-            <FluentSelect Label="Color"
-                          Items="@(Enum.GetValues<OfficeColor>().Select(i => (OfficeColor?)i))"
-                          Height="200px"
-                          Width="250px"
-                          @bind-SelectedOption="@OfficeColor">
-                <OptionTemplate>  
-                    <FluentStack>
-                        <FluentIcon Value="@(new Icons.Filled.Size20.RectangleLandscape())"
-                                    Color="Color.Custom" />
-                                    @* CustomColor="@(@context.ToAttributeValue() != "default" ? context.ToAttributeValue() : "#036ac4" )"/> *@
-                        <FluentLabel>@context</FluentLabel>  
-                    </FluentStack>
-                </OptionTemplate> 
-            </FluentSelect>
-            <FluentButton Appearance="Appearance.Accent" OnClick="PickRandomColor">Feeling lucky?</FluentButton>
+    <FluentStack>
+        <FluentGrid>
+            <FluentGridItem>
+                <DesignThemeComponent />
+            </FluentGridItem>
+            <FluentGridItem>
+                <CultureSelector />
+            </FluentGridItem>
+        </FluentGrid>
+    </FluentStack>
 
-            <CultureSelector/>
-
-        </FluentGridItem>
-    </FluentGrid>
 
     <FluentStack Style="margin: 20px 0px; padding: 30px; border: 1px solid var(--accent-fill-rest);"
-        HorizontalAlignment="HorizontalAlignment.Start">
+                 HorizontalAlignment="HorizontalAlignment.Start">
         <FluentGrid>
             <FluentGridItem>
                 <UserComponent />
@@ -54,13 +33,6 @@
 
 @code
 {
-    public DesignThemeModes Mode { get; set; }
-
-    public OfficeColor? OfficeColor { get; set; }
-  
-    void PickRandomColor()
-    {
-        OfficeColor = OfficeColorUtilities.GetRandom();
-    }
+    
 }
 

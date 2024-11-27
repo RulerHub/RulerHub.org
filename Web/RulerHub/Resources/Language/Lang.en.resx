@@ -123,4 +123,7 @@
   <data name="MenuSettings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="SettingsHeaderText" xml:space="preserve">
+    <value>Change your settings</value>
+  </data>
 </root>
