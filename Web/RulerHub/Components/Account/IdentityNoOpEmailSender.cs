@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using RulerHub.Data;
+using RulerHub.Data.Identity;
 
 namespace RulerHub.Components.Account
 {

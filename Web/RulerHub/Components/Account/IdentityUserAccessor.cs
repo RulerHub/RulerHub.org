@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Identity;
-using RulerHub.Data;
+using RulerHub.Data.Identity;
 
 namespace RulerHub.Components.Account
 {

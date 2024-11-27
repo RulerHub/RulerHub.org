@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Primitives;
 using RulerHub.Components.Account.Pages;
 using RulerHub.Components.Account.Pages.Manage;
-using RulerHub.Data;
+using RulerHub.Data.Identity;
 using System.Security.Claims;
 using System.Text.Json;
 

@@ -6,6 +6,7 @@ using RulerHub;
 using RulerHub.Components;
 using RulerHub.Components.Account;
 using RulerHub.Data;
+using RulerHub.Data.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 
