@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.ServiceDefaults", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulerHub", "Web\RulerHub\RulerHub.csproj", "{31548302-B7A6-48D9-99DE-A5C438941776}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStore.Api", "Server\eStore.Api\eStore.Api.csproj", "{203F8900-B1EE-4435-89B9-1B08FBBF0752}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eStore.Api", "Server\eStore.Api\eStore.Api.csproj", "{A1E4C52D-3B62-4C71-8982-76004CB1B74D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{31548302-B7A6-48D9-99DE-A5C438941776}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31548302-B7A6-48D9-99DE-A5C438941776}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31548302-B7A6-48D9-99DE-A5C438941776}.Release|Any CPU.Build.0 = Release|Any CPU
-		{203F8900-B1EE-4435-89B9-1B08FBBF0752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{203F8900-B1EE-4435-89B9-1B08FBBF0752}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{203F8900-B1EE-4435-89B9-1B08FBBF0752}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{203F8900-B1EE-4435-89B9-1B08FBBF0752}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A1E4C52D-3B62-4C71-8982-76004CB1B74D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1E4C52D-3B62-4C71-8982-76004CB1B74D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1E4C52D-3B62-4C71-8982-76004CB1B74D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1E4C52D-3B62-4C71-8982-76004CB1B74D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
