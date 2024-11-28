@@ -9,6 +9,4 @@ builder.AddProject<Projects.RulerHub>("RulerHub")
     .WithReference(eStoreApi)
     .WaitFor(eStoreApi); ;
 
-builder.AddProject<Projects.eStore_Auth>("estore-auth");
-
 builder.Build().Run();
