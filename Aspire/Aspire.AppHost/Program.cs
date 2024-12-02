@@ -7,6 +7,6 @@ var eStoreApi = builder.AddProject<Projects.eStore_Api>("eSstoreApi");
 builder.AddProject<Projects.RulerHub>("RulerHub")
     .WithExternalHttpEndpoints()
     .WithReference(eStoreApi)
-    .WaitFor(eStoreApi); ;
+    .WaitFor(eStoreApi);
 
 builder.Build().Run();

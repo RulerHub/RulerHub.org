@@ -1,6 +1,6 @@
 ﻿using Microsoft.FluentUI.AspNetCore.Components;
 
-namespace RulerHub.Components.Settings.Pages;
+namespace RulerHub.Components.Settings.Pages.Manage;
 
 public partial class Index
 {
