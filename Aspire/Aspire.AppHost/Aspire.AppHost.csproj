@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Server\eStore.Api\eStore.Api.csproj" />
+    <ProjectReference Include="..\..\Web\eStore.Web\eStore.Web.csproj" />
     <ProjectReference Include="..\..\Web\RulerHub\RulerHub.csproj" />
   </ItemGroup>
 
