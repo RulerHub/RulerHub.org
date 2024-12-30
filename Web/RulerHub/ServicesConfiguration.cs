@@ -66,7 +66,7 @@ public static class ServicesConfiguration
 
     public static void ConfigureLocalization(WebApplication app)
     {
-        string[] supportedCultures = { "es", "en" };
+        string[] supportedCultures = ["es", "en"];
         var localizationOptions = new RequestLocalizationOptions()
             .SetDefaultCulture(supportedCultures[0])
             .AddSupportedCultures(supportedCultures)
