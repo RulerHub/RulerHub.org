@@ -3,6 +3,9 @@
 @layout ManageLayout
 @attribute [Authorize]
 
+@inject IMessageService MessageService
+@inject IDialogService DialogService
+
 @inject IStringLocalizer<Lang> local
 
 <PageTitle>@local["MenuSettings"]</PageTitle>
@@ -20,6 +23,7 @@
         </FluentGrid>
     </FluentStack>
 
+    <FluentButton OnClick="@AddInNotificationCenter" Appearance="Appearance.Accent">Add in Notification Center</FluentButton>
 
     <FluentStack Style="margin: 20px 0px; padding: 30px; border: 1px solid var(--accent-fill-rest);"
                  HorizontalAlignment="HorizontalAlignment.Start">
@@ -30,9 +34,4 @@
         </FluentGrid>
     </FluentStack>
 </div>
-
-@code
-{
-    
-}
 

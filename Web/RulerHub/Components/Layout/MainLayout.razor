@@ -1,4 +1,5 @@
-﻿@inherits LayoutComponentBase
+﻿@using RulerHub.Components.Settings.Pages.Notifications
+@inherits LayoutComponentBase
 
 @implements IDisposable
 @inject IDialogService DialogService
@@ -29,7 +30,7 @@
                         <input type="hidden" name="ReturnUrl" value="@currentUrl" />
                         <FluentButton Type="ButtonType.Submit" Appearance="Appearance.Neutral" Style="width: 100%;" IconStart="new Icons.Regular.Size20.ArrowExit()"></FluentButton>
                     </form>
-
+                    <NotificationCenter/>
                 </Authorized>
                 <NotAuthorized>
                     <FluentPersona Name="Log In"

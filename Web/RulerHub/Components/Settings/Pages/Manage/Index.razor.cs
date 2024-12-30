@@ -4,19 +4,24 @@ namespace RulerHub.Components.Settings.Pages.Manage;
 
 public partial class Index
 {
-    private IDialogReference? _dialog;
-
-    private async Task OpenPnel()
+    ActionLink<Message> link = new()
     {
-        //var data = DateTime.Now;
-        //_dialog = await DialogService.ShowPanelAsync<PersonaliseForm>(data, new DialogParameters<PersonaliseForm>()
-        //{
-        //    //Content = DialogData,
-        //    Alignment = HorizontalAlignment.Right,
-        //    Title = "Some title",
-        //    PrimaryAction = "Yes",
-        //    SecondaryAction = "No",
-        //});
-        //DialogResult result = await _dialog.Result;
+        Text = "Learn more",
+        Href = "https://bing.com",
+    };
+
+    int counter = 0;
+
+    void AddInNotificationCenter()
+    {
+        MessageService.ShowMessageBar(options =>
+        {
+            options.Intent = Enum.GetValues<MessageIntent>()[1];
+            options.Title = $"Notification #{counter++}";
+            options.Body = "Some mesage for notification";
+            options.Link = link;
+            options.Timestamp = DateTime.Now;
+            options.Section = App.MESSAGES_NOTIFICATION_CENTER;
+        });
     }
 }
