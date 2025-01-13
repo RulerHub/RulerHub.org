@@ -6,6 +6,8 @@
     <nav class="sitenav" aria-labelledby="main-menu">
         <FluentNavMenu Id="main-menu" Collapsible="true" Width="250" Title="Navigation menu" @bind-Expanded="expanded" CustomToggle="true">
             <FluentNavLink Href="/" Match="NavLinkMatch.All" Icon="@(new Icons.Regular.Size20.Home())" IconColor="Color.Accent">@local["MenuHome"]</FluentNavLink>
+            <FluentNavLink Href="blogs" Icon="@(new Icons.Regular.Size20.News())" IconColor="Color.Accent">@local["MenuBlogs"]</FluentNavLink>
+            <FluentNavLink Href="wizard" Icon="@(new Icons.Regular.Size20.News())" IconColor="Color.Accent">@local["MenuNewBlogs"]</FluentNavLink>
             <AuthorizeView>
                 <NotAuthorized>
                     

@@ -14,12 +14,12 @@ var app = builder.Build();
 
 ServicesConfiguration.ConfigureLocalization(app);
 
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    var context = services.GetRequiredService<ApplicationDbContext>();
-    context.Database.Migrate();
-}
+//using (var scope = app.Services.CreateScope())
+//{
+//    var services = scope.ServiceProvider;
+//    var context = services.GetRequiredService<ApplicationDbContext>();
+//    context.Database.Migrate();
+//}
 
 ServicesConfiguration.ConfigureMiddleware(app);
 

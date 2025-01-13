@@ -1,0 +1,44 @@
+﻿@page "/blogs"
+@using RulerHub.Components.Blogs.Pages.Shared
+
+<PageTitle>Blogs</PageTitle>
+
+<FluentLabel Typo="Typography.H1">Blogs</FluentLabel>
+
+<FluentSpacer Width="1" />
+
+<FluentDivider />
+
+<FluentSpacer Width="1" />
+
+<FluentGrid>
+    <FluentGridItem sm="8">
+
+        <BlogsCards Title="Grippen" 
+                    Description="A figter jet made for you and bla bla bla bla bla bla" 
+                    PictureLink="Picture/gripen.jpg" 
+                    PictureAlt="Grippen"
+                    Date="now"/>
+
+        <BlogsCards Title="Grippen"
+                    Description="A figter jet"
+                    PictureLink="Picture/gripen.jpg"
+                    PictureAlt="Grippen"
+                    Date="now" />
+
+        <BlogsCards Title="Grippen"
+                    Description="A figter jet"
+                    PictureLink="Picture/gripen.jpg"
+                    PictureAlt="Grippen"
+                    Date="now" />
+
+    </FluentGridItem>
+
+    <FluentGridItem sm="2">
+        <BlogsList />
+    </FluentGridItem>
+</FluentGrid>
+
+@code{
+    DateTime now = DateTime.Now;
+}
