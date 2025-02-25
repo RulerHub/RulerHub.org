@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aspire.ServiceDefaults", "A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulerHub", "Web\RulerHub\RulerHub.csproj", "{31548302-B7A6-48D9-99DE-A5C438941776}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FBD42464-C5A5-4C58-BB8B-7DFDE12FE322}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulerHub.org", "src\RulerHub.org\RulerHub.org.csproj", "{58554D67-E0EB-493E-ADE4-78B22ECEAE7A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "old", "old", "{AC7AAE53-6328-4DA5-B80B-04BA2369BF94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +33,19 @@ Global
 		{31548302-B7A6-48D9-99DE-A5C438941776}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31548302-B7A6-48D9-99DE-A5C438941776}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31548302-B7A6-48D9-99DE-A5C438941776}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58554D67-E0EB-493E-ADE4-78B22ECEAE7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58554D67-E0EB-493E-ADE4-78B22ECEAE7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58554D67-E0EB-493E-ADE4-78B22ECEAE7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58554D67-E0EB-493E-ADE4-78B22ECEAE7A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A2401A55-24F9-4A97-8E56-A3EF401EDBA8} = {AC7AAE53-6328-4DA5-B80B-04BA2369BF94}
+		{5C09491A-BE23-475E-8E36-DCB8384EDAEF} = {AC7AAE53-6328-4DA5-B80B-04BA2369BF94}
+		{31548302-B7A6-48D9-99DE-A5C438941776} = {AC7AAE53-6328-4DA5-B80B-04BA2369BF94}
+		{58554D67-E0EB-493E-ADE4-78B22ECEAE7A} = {FBD42464-C5A5-4C58-BB8B-7DFDE12FE322}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {55319219-4327-45D3-A9B4-40860DF19287}
