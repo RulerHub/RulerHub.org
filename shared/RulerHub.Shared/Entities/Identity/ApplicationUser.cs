@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Identity;
-using RulerHub.Shared.Entities.Enterprices;
+using RulerHub.Shared.Entities.Enterprises;
 
 namespace RulerHub.Shared.Entities.Identity;
 
@@ -7,6 +7,6 @@ namespace RulerHub.Shared.Entities.Identity;
 public class ApplicationUser : IdentityUser
 {
     public int? EnterpriceId { get; set; }
-    public List<Enterprice>? Enterprice { get; set; } = [];
+    public List<Enterprise>? Enterprice { get; set; } = [];
 }
 

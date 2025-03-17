@@ -1,0 +1,19 @@
+﻿@using RulerHub.Data.Services.Enterprises.Implements
+@using RulerHub.Data.Services.Enterprises.Interfaces
+
+@inject NavigationManager NavigationManager
+
+@inject AuthenticationStateProvider AuthenticationStateProvider
+
+@inject UserManager<ApplicationUser> UserManager
+
+@attribute [StreamRendering]
+
+<AuthorizeView>
+    <Authorized>
+        <EnterpriseOverseeComponent/>
+    </Authorized>
+    <NotAuthorized>
+        Debes Logearte
+    </NotAuthorized>
+</AuthorizeView>

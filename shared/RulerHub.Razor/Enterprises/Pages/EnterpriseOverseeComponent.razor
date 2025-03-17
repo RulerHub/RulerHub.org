@@ -1,0 +1,28 @@
+﻿@using RulerHub.Data.Services.Enterprises.Implements
+@using RulerHub.Data.Services.Enterprises.Interfaces
+
+@inject NavigationManager NavigationManager
+@inject IEnterpriseService EnterpriseService
+
+@attribute [StreamRendering]
+
+@if (Enterprise is null)
+{
+    <p><em>Loading...</em></p>
+    <h1>Create one</h1>
+}
+else
+{
+    <FluentLabel Typo="Typography.PageTitle">@Enterprise.Name</FluentLabel>
+    <FluentLabel Typo="Typography.Body">@Enterprise.Description</FluentLabel>
+    <small>@Enterprise.DateCreate</small>
+
+    <FluentSpacer Width="2" />
+    <FluentDivider />
+    <FluentSpacer Width="2" />
+
+    @* <EnterpricePlugins 
+                WarehouseCount="@Enterprise.Warehouses.Count()"
+            /> *@
+
+}

@@ -1,0 +1,23 @@
+﻿@inject NavigationManager NavigationManager
+
+<FluentHorizontalScroll @ref="_horizontalScroll" Speed="600" Easing=ScrollEasing.EaseInOut>
+
+    <FluentCard Width="200px" Height=150px>
+        <div style="width: 150px;">
+            <FluentStack HorizontalAlignment="HorizontalAlignment.Start">
+                <FluentIcon Value="@(new Icons.Regular.Size24.NotepadPerson())" />
+                <FluentLabel>Warehouse</FluentLabel>
+                <FluentBadge>@WarehouseCount</FluentBadge>
+            </FluentStack>
+        </div>
+
+        <FluentSpacer Width="2" />
+
+        <div style="width: 150px;">
+            <FluentStack HorizontalAlignment="HorizontalAlignment.End"
+                         VerticalAlignment="VerticalAlignment.Bottom">
+                <FluentButton Appearance="Appearance.Accent" OnClick="GotoWarehouseManage">Oversee</FluentButton>
+            </FluentStack>
+        </div>
+    </FluentCard>
+</FluentHorizontalScroll>

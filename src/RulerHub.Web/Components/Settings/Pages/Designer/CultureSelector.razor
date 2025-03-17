@@ -1,0 +1,33 @@
+﻿@inject NavigationManager NavigationManager
+
+<div>
+    <select @bind="Culture">
+        <option value="es">Español</option>
+        <option value="en">English</option>
+    </select>
+</div>
+
+@* <FluentMenuButton @ref=menuButton Text="Select your Language">
+    <FluentMenuItem Id="es">Español</FluentMenuItem>
+    <FluentMenuItem Id="en">English</FluentMenuItem>
+</FluentMenuButton> *@
+
+@code {
+    private FluentMenuButton menuButton = new();
+
+    protected override void OnInitialized()
+    {
+        Culture = CultureInfo.CurrentCulture;
+    }
+    private CultureInfo Culture{
+        get{ return CultureInfo.CurrentCulture; }
+        set{if(CultureInfo.CurrentCulture != value){
+                var uri = new Uri(NavigationManager.Uri)
+                .GetComponents(UriComponents.PathAndQuery, UriFormat.Unescaped);
+                var cultureEscaped = Uri.EscapeDataString(value.Name);
+                var uriEscaped = Uri.EscapeDataString(uri);
+
+                NavigationManager.NavigateTo($"Culture/Set?culture={cultureEscaped}&redirectUri={uriEscaped}", forceLoad:true);
+            }}
+    }
+}

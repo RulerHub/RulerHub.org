@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\shared\RulerHub.Razor\RulerHub.Razor.csproj" />
     <ProjectReference Include="..\RulerHub.Data\RulerHub.Data.csproj" />
   </ItemGroup>
 </Project>

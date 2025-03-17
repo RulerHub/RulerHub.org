@@ -1,6 +1,4 @@
-﻿@implements IDisposable
-
-@inject NavigationManager NavigationManager
+﻿@inject NavigationManager NavigationManager
 
 <div class="navmenu">
     <input type="checkbox" title="Menu expand/collapse toggle" id="navmenu-toggle" class="navmenu-icon" />
@@ -8,21 +6,24 @@
     <nav class="sitenav" aria-labelledby="main-menu">
         <FluentNavMenu Id="main-menu" Collapsible="true" Width="250" Title="Navigation menu" @bind-Expanded="expanded" CustomToggle="true">
             <FluentNavLink Href="/" Match="NavLinkMatch.All" Icon="@(new Icons.Regular.Size20.Home())" IconColor="Color.Accent">Home</FluentNavLink>
-            <FluentNavLink Href="counter" Icon="@(new Icons.Regular.Size20.NumberSymbolSquare())" IconColor="Color.Accent">Counter</FluentNavLink>
-            <FluentNavLink Href="weather" Icon="@(new Icons.Regular.Size20.WeatherPartlyCloudyDay())" IconColor="Color.Accent">Weather</FluentNavLink>
-            <FluentNavLink Href="auth" Icon="@(new Icons.Regular.Size20.LockClosedKey())" IconColor="Color.Accent">Auth Required</FluentNavLink>
             <AuthorizeView>
                 <Authorized>
-                    <FluentNavLink Href="Account/Manage">@context.User.Identity?.Name</FluentNavLink>
-                    <form action="Account/Logout" method="post">
-                        <AntiforgeryToken />
-                        <input type="hidden" name="ReturnUrl" value="@currentUrl" />
-                        <FluentButton Type="ButtonType.Submit" Style="width: 100%;">Logout</FluentButton>
-                    </form>
+                    <FluentNavLink Href="enterprise/home"
+                                   Match="NavLinkMatch.All"
+                                   Icon="@(new Icons.Regular.Size20.BuildingSkyscraper())"
+                                   IconColor="Color.Accent">
+                        Enterprise
+                    </FluentNavLink>
+                    <FluentNavLink Href="/"
+                                   Match="NavLinkMatch.All"
+                                   Icon="@(new Icons.Regular.Size20.BuildingFactory())"
+                                   IconColor="Color.Accent">
+                        Production
+                    </FluentNavLink>
+
                 </Authorized>
                 <NotAuthorized>
-                    <FluentNavLink Href="Account/Register">Register</FluentNavLink>
-                    <FluentNavLink Href="Account/Login">Login</FluentNavLink>
+
                 </NotAuthorized>
             </AuthorizeView>
         </FluentNavMenu>
@@ -30,23 +31,5 @@
 </div>
 
 @code {
-    private bool expanded = true;
-    private string? currentUrl;
-
-    protected override void OnInitialized()
-    {
-        currentUrl = NavigationManager.ToBaseRelativePath(NavigationManager.Uri);
-        NavigationManager.LocationChanged += OnLocationChanged;
-    }
-
-    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
-    {
-        currentUrl = NavigationManager.ToBaseRelativePath(e.Location);
-        StateHasChanged();
-    }
-
-    public void Dispose()
-    {
-        NavigationManager.LocationChanged -= OnLocationChanged;
-    }
+    private bool expanded = true;   
 }
