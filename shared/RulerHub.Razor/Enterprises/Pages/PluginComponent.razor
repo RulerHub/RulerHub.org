@@ -1,0 +1,36 @@
+@inject NavigationManager NavigationManager
+
+<div>
+    <FluentStack HorizontalAlignment="HorizontalAlignment.Start">
+        <FluentIcon Value="@(new Icons.Regular.Size24.NotepadPerson())" />
+        <FluentLabel>@Title</FluentLabel>
+        <FluentBadge>@Badge</FluentBadge>
+    </FluentStack>
+</div>
+
+<FluentSpacer Width="1" />
+
+<div>
+    @* style="width: 150px;" *@
+    <FluentStack HorizontalAlignment="HorizontalAlignment.End"
+    VerticalAlignment="VerticalAlignment.Bottom">
+        <FluentButton Appearance="Appearance.Accent">@ButtonTitle</FluentButton>
+    </FluentStack>
+</div>
+
+@code{
+    [Parameter]
+    public string Title { get; set; } = default!;
+
+    [Parameter]
+    public string Badge { get; set; } = default!;
+    [Parameter]
+    public string ButtonTitle { get; set; } = default!;
+    [Parameter]
+    public string NavString { get; set; } = default!;
+
+    public void OnClick()
+    {
+        NavigationManager.NavigateTo(NavString);
+    }
+}

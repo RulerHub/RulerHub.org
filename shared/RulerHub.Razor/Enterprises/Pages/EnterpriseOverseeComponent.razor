@@ -1,7 +1,4 @@
-﻿@using RulerHub.Data.Services.Enterprises.Implements
-@using RulerHub.Data.Services.Enterprises.Interfaces
-
-@inject NavigationManager NavigationManager
+﻿@inject NavigationManager NavigationManager
 @inject IEnterpriseService EnterpriseService
 
 @attribute [StreamRendering]
@@ -13,16 +10,94 @@
 }
 else
 {
-    <FluentLabel Typo="Typography.PageTitle">@Enterprise.Name</FluentLabel>
-    <FluentLabel Typo="Typography.Body">@Enterprise.Description</FluentLabel>
-    <small>@Enterprise.DateCreate</small>
+    <FluentGrid Spacing="2"
+                AdaptiveRendering="true">
 
-    <FluentSpacer Width="2" />
-    <FluentDivider />
-    <FluentSpacer Width="2" />
+        <FluentGridItem xs="12">
+            <FluentCard>
+                <FluentLabel Typo="Typography.HeroTitle">@Enterprise.Name</FluentLabel>
+            </FluentCard>
+        </FluentGridItem>
+        <FluentGridItem xs="12">
+            <FluentCard>
+                <FluentLabel Typo="Typography.Subject">@Enterprise.Description</FluentLabel>
+            </FluentCard>
+        </FluentGridItem>
 
-    @* <EnterpricePlugins 
-                WarehouseCount="@Enterprise.Warehouses.Count()"
-            /> *@
+        <FluentGridItem xs="12">
+            <FluentDivider />
+        </FluentGridItem>
 
+        <FluentGridItem xs="12" sm="6" HiddenWhen="GridItemHidden.SmAndDown">
+            <FluentCard>
+                <p>Clients</p>
+                <p>Providers</p>
+                <p>Routes</p>
+                <p>Sponsors</p>
+                <p>Articles</p>
+                <p>Blogs</p>
+            </FluentCard>
+        </FluentGridItem>
+        <FluentGridItem xs="12" sm="6" HiddenWhen="GridItemHidden.SmAndDown">
+            <FluentCard>
+                <p>Warehouses</p>
+                <p>Departments</p>
+                <p>Store</p>
+                <p>Contract</p>
+                <p>Sales</p>
+                <p>Buys</p>
+            </FluentCard>
+        </FluentGridItem>
+
+        <FluentGridItem xs="12" sm="6">
+            <FluentCard>
+                <FluentLabel Typo="Typography.Subject">
+                    Register At:
+                    <small>@Enterprise.DateCreate</small>
+                </FluentLabel>
+            </FluentCard>
+        </FluentGridItem>
+        <FluentGridItem xs="12" sm="6">
+            <FluentCard>
+                <FluentLabel Typo="Typography.Subject">
+                    Register At:
+                    <small>@Enterprise.DateCreate</small>
+                </FluentLabel>
+            </FluentCard>
+        </FluentGridItem>
+
+        <FluentGridItem xs="6" sm="3">
+            <FluentCard>
+                <PluginComponent Title="Resumen"
+                                 Badge="new"
+                                 ButtonTitle="Resumen"
+                                 NavString="/" />
+            </FluentCard>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="3">
+            <FluentCard>
+                <PluginComponent Title="Sales"
+                                 Badge="new"
+                                 ButtonTitle="Resumen"
+                                 NavString="/" />
+            </FluentCard>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="3">
+            <FluentCard>
+                <PluginComponent Title="Production"
+                                 Badge="new"
+                                 ButtonTitle="Resumen"
+                                 NavString="/" />
+            </FluentCard>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="3">
+            <FluentCard>
+                <PluginComponent Title="Logistic"
+                                 Badge="new"
+                                 ButtonTitle="Resumen"
+                                 NavString="/" />
+            </FluentCard>
+        </FluentGridItem>
+    </FluentGrid>
 }
+

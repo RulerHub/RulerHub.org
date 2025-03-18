@@ -1,1 +1,22 @@
-﻿
+﻿/*.cover {
+    background-image: url('header.jpeg');
+    background-size: cover;
+    background-position: right;
+    background-repeat: no-repeat;
+    height: 50%;
+    width: 50%;
+    will-change: transform;
+}*/
+
+/* Media queries para diferentes tamaños de pantalla */
+/*@media (max-width: 768px) {
+    .cover {
+        background-position: left;
+    }
+}
+
+@media (max-width: 480px) {
+    .cover {
+        background-position: left;
+    }
+}*/

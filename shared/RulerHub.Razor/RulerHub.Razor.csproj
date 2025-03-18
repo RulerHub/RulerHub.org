@@ -18,11 +18,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <ProjectReference Include="..\..\src\RulerHub.Data\RulerHub.Data.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\RulerHub.Data\RulerHub.Data.csproj" />
+    <None Include="wwwroot\25.png" />
   </ItemGroup>
 
 </Project>

@@ -14,16 +14,65 @@
                                    IconColor="Color.Accent">
                         Enterprise
                     </FluentNavLink>
+
+                    <FluentNavGroup Title="Logistica"
+                                    Icon="@(new Icons.Regular.Size20.BuildingShop())">
+                        <FluentNavLink Href="/"
+                                       Match="NavLinkMatch.All"
+                                       Icon="@(new Icons.Regular.Size20.Home())"
+                                       IconColor="Color.Accent">
+                            Contracts
+                        </FluentNavLink>
+                        <FluentNavLink Href="/"
+                                       Match="NavLinkMatch.All"
+                                       Icon="@(new Icons.Regular.Size20.Home())"
+                                       IconColor="Color.Accent">
+                            Providers
+                        </FluentNavLink>
+                        <FluentNavLink Href="/"
+                                       Match="NavLinkMatch.All"
+                                       Icon="@(new Icons.Regular.Size20.Home())"
+                                       IconColor="Color.Accent">
+                            Warehouses
+                        </FluentNavLink>
+                    </FluentNavGroup>
+
+                    <FluentNavGroup Title="Production"
+                                    Icon="@(new Icons.Regular.Size20.BuildingFactory())">
+                        <FluentNavLink Href="/"
+                                       Match="NavLinkMatch.All"
+                                       Icon="@(new Icons.Regular.Size20.BuildingFactory())"
+                                       IconColor="Color.Accent">
+                            Talleres
+                        </FluentNavLink>
+                        <FluentNavLink Href="/"
+                                       Match="NavLinkMatch.All"
+                                       Icon="@(new Icons.Regular.Size20.BuildingFactory())"
+                                       IconColor="Color.Accent">
+                            Documentation
+                        </FluentNavLink>
+                    </FluentNavGroup>
+
                     <FluentNavLink Href="/"
                                    Match="NavLinkMatch.All"
-                                   Icon="@(new Icons.Regular.Size20.BuildingFactory())"
+                                   Icon="@(new Icons.Regular.Size20.Home())"
                                    IconColor="Color.Accent">
-                        Production
+                        Blog
+                    </FluentNavLink>
+                    <FluentNavLink Href="settings"
+                                   Icon="@(new Icons.Regular.Size20.Settings())"
+                                   IconColor="Color.Accent">
+                        Settings
                     </FluentNavLink>
 
                 </Authorized>
                 <NotAuthorized>
-
+                    <FluentNavLink Href="/"
+                                   Match="NavLinkMatch.All"
+                                   Icon="@(new Icons.Regular.Size20.Home())"
+                                   IconColor="Color.Accent">
+                        Blog
+                    </FluentNavLink>
                 </NotAuthorized>
             </AuthorizeView>
         </FluentNavMenu>
