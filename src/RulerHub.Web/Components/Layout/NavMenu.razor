@@ -1,0 +1,84 @@
+﻿@inject NavigationManager NavigationManager
+
+<div class="navmenu">
+    <input type="checkbox" title="Menu expand/collapse toggle" id="navmenu-toggle" class="navmenu-icon" />
+    <label for="navmenu-toggle" class="navmenu-icon"><FluentIcon Value="@(new Icons.Regular.Size20.Navigation())" Color="Color.Fill" /></label>
+    <nav class="sitenav" aria-labelledby="main-menu">
+        <FluentNavMenu Id="main-menu" Collapsible="true" Width="250" Title="Navigation menu" @bind-Expanded="expanded" CustomToggle="true">
+            <FluentNavLink Href="/" Match="NavLinkMatch.All" Icon="@(new Icons.Regular.Size20.Home())" IconColor="Color.Accent">Home</FluentNavLink>
+            <AuthorizeView>
+                <Authorized>
+                    <FluentNavLink Href="enterprise/home"
+                                   Match="NavLinkMatch.All"
+                                   Icon="@(new Icons.Regular.Size20.BuildingSkyscraper())"
+                                   IconColor="Color.Accent">
+                        Enterprise
+                    </FluentNavLink>
+
+                    <FluentNavGroup Title="Logistica"
+                                    Icon="@(new Icons.Regular.Size20.BuildingShop())">
+                        <FluentNavLink Href="/"
+                                       Match="NavLinkMatch.All"
+                                       Icon="@(new Icons.Regular.Size20.Home())"
+                                       IconColor="Color.Accent">
+                            Contracts
+                        </FluentNavLink>
+                        <FluentNavLink Href="/"
+                                       Match="NavLinkMatch.All"
+                                       Icon="@(new Icons.Regular.Size20.Home())"
+                                       IconColor="Color.Accent">
+                            Providers
+                        </FluentNavLink>
+                        <FluentNavLink Href="/"
+                                       Match="NavLinkMatch.All"
+                                       Icon="@(new Icons.Regular.Size20.Home())"
+                                       IconColor="Color.Accent">
+                            Warehouses
+                        </FluentNavLink>
+                    </FluentNavGroup>
+
+                    <FluentNavGroup Title="Production"
+                                    Icon="@(new Icons.Regular.Size20.BuildingFactory())">
+                        <FluentNavLink Href="/"
+                                       Match="NavLinkMatch.All"
+                                       Icon="@(new Icons.Regular.Size20.BuildingFactory())"
+                                       IconColor="Color.Accent">
+                            Talleres
+                        </FluentNavLink>
+                        <FluentNavLink Href="/"
+                                       Match="NavLinkMatch.All"
+                                       Icon="@(new Icons.Regular.Size20.BuildingFactory())"
+                                       IconColor="Color.Accent">
+                            Documentation
+                        </FluentNavLink>
+                    </FluentNavGroup>
+
+                    <FluentNavLink Href="/"
+                                   Match="NavLinkMatch.All"
+                                   Icon="@(new Icons.Regular.Size20.Home())"
+                                   IconColor="Color.Accent">
+                        Blog
+                    </FluentNavLink>
+                    <FluentNavLink Href="settings"
+                                   Icon="@(new Icons.Regular.Size20.Settings())"
+                                   IconColor="Color.Accent">
+                        Settings
+                    </FluentNavLink>
+
+                </Authorized>
+                <NotAuthorized>
+                    <FluentNavLink Href="/"
+                                   Match="NavLinkMatch.All"
+                                   Icon="@(new Icons.Regular.Size20.Home())"
+                                   IconColor="Color.Accent">
+                        Blog
+                    </FluentNavLink>
+                </NotAuthorized>
+            </AuthorizeView>
+        </FluentNavMenu>
+    </nav>
+</div>
+
+@code {
+    private bool expanded = true;   
+}

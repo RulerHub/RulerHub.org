@@ -1,0 +1,19 @@
+﻿@inherits LayoutComponentBase
+@layout RulerHub.Web.Components.Layout.MainLayout
+
+@* @inject IStringLocalizer<Lang> local *@
+
+<FluentLabel Typo="Typography.H1">Settings</FluentLabel>
+
+<div>
+    <FluentDivider />
+    <FluentGrid>
+        <FluentGridItem sm="10">
+            @Body
+        </FluentGridItem>
+
+        <FluentGridItem sm="2">
+            <SettingsManageNavMenu />
+        </FluentGridItem>
+    </FluentGrid>
+</div>
