@@ -1,5 +1,6 @@
 ﻿using RulerHub.Shared.Entities.Abstractions;
 using RulerHub.Shared.Entities.Identity;
+using RulerHub.Shared.Entities.Warehouses;
 
 namespace RulerHub.Shared.Entities.Enterprises;
 
@@ -16,4 +17,6 @@ public class Enterprise : Entity
 
     public string? UserId { get; set; }
     public ApplicationUser? User { get; set; }
+
+    public List<Warehouse> Warehouses { get; set; } = [];
 }
