@@ -1,5 +1,10 @@
 ﻿@inject NavigationManager NavigationManager
+
 @inject IEnterpriseService EnterpriseService
+
+@inject IDialogService DialogService
+
+@inject IToastService ToastService
 
 @attribute [StreamRendering]
 
@@ -18,14 +23,24 @@ else
                 <FluentLabel Typo="Typography.HeroTitle">@Enterprise.Name</FluentLabel>
             </FluentCard>
         </FluentGridItem>
-        <FluentGridItem xs="12">
-            <FluentCard>
-                <FluentLabel Typo="Typography.Subject">@Enterprise.Description</FluentLabel>
-            </FluentCard>
-        </FluentGridItem>
 
         <FluentGridItem xs="12">
             <FluentDivider />
+        </FluentGridItem>
+
+        <FluentGridItem xs="12">
+            <FluentAccordionItem Heading="Description">
+
+                <FluentButton OnClick="@(() => Update(Enterprise))" aria-label="edit" IconEnd="@(new Icons.Regular.Size16.Edit())"> Editar </FluentButton>
+
+                <div slot="end">
+                    <FluentLabel Typo="Typography.Subject">
+                        Register At:
+                        <small>@Enterprise.DateCreate</small>
+                    </FluentLabel>
+                </div>
+                <FluentLabel Typo="Typography.Subject">@Enterprise.Description</FluentLabel>
+            </FluentAccordionItem>
         </FluentGridItem>
 
         <FluentGridItem xs="12" sm="6" HiddenWhen="GridItemHidden.SmAndDown">

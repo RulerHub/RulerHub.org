@@ -1,0 +1,104 @@
+
+
+@inject IToastService ToastService
+
+@inject IEnterpriseService EnterpriseService
+
+@implements IDialogContentComponent<Enterprise>
+
+<!-- Header -->
+<FluentDialogHeader ShowDismiss="true">
+    <FluentStack VerticalAlignment="VerticalAlignment.Center">
+        <FluentIcon Value="@(new Icons.Regular.Size24.WindowApps())" />
+        <FluentLabel Typo="Typography.PaneHeader">
+            @Dialog.Instance.Parameters.Title
+        </FluentLabel>
+    </FluentStack>
+</FluentDialogHeader>
+
+<!-- Body -->
+<FluentDialogBody>
+    <EditForm EditContext="@_editContext" FormName="update-enterprise">
+        <DataAnnotationsValidator />
+
+        <FluentLabel Style="margin-bottom: 16px;">
+            realiza los ajustes necesarios para que todo se encuentre bien
+        </FluentLabel>
+        <FluentGrid Spacing="2"
+                    AdaptiveRendering="true">
+
+            <FluentGridItem xs="12">
+                <FluentTextArea Name="update_description"
+                                 @bind-Value="@Content.Description"
+                                 Label="Description"
+                                 Required
+                                 Size="400" />
+            </FluentGridItem>
+
+            <FluentGridItem xs="12" sm="6">
+                <FluentTextField Name="update_address"
+                                 @bind-Value="@Content.Address"
+                                 Label="Address"
+                                 Required
+                                 Size="400" />
+            </FluentGridItem>
+
+            <FluentGridItem xs="12" sm="6">
+                <FluentTextField Name="update_email"
+                                 @bind-Value="@Content.Email"
+                                 Label="Email"
+                                 Required
+                                 Size="400" />
+            </FluentGridItem>
+
+            <FluentGridItem xs="6" sm="3">
+                <FluentTextField Name="update_phone"
+                                 @bind-Value="@Content.Phone"
+                                 Label="Phone"
+                                 Required
+                                 Size="400" />
+            </FluentGridItem>
+
+            <FluentGridItem xs="6" sm="3">
+                <FluentTextField Name="update_website"
+                                 @bind-Value="@Content.Website"
+                                 Label="Website"
+                                 Required
+                                 Size="400" />
+            </FluentGridItem>
+
+            @* <FluentGridItem xs="6" sm="3">
+            <FluentDatePicker Name="update_website"
+                             @bind-Value="@Content.DateCreate"
+                             Label="Name"
+                             Required
+                             Size="400" />
+        </FluentGridItem> *@
+
+            <FluentGridItem xs="6" sm="3">
+                <FluentDatePicker Name="update_register"
+                                  Label="Register Date"
+                                  AriaLabel="To" @bind-Value="@SelectedDate"
+                                  DoubleClickToDate="@DoubleClickToDate" />
+
+            </FluentGridItem>
+        </FluentGrid>
+
+        <div style="color: var(--error);">
+            <FluentValidationSummary />
+        </div>
+    </EditForm>
+</FluentDialogBody>
+
+<!-- Footer -->
+<FluentDialogFooter>
+    <FluentButton Appearance="Appearance.Accent"
+                  Disabled="@(!_editContext.Validate())"
+                  OnClick="@SaveAsync">
+        Save
+    </FluentButton>
+    <FluentButton Appearance="Appearance.Neutral"
+                  OnClick="@CancelAsync">
+        Cancel
+    </FluentButton>
+</FluentDialogFooter>
