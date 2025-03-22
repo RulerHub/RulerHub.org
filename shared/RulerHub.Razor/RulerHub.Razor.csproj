@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\wKeeper\src\WKeeper.Data\WKeeper.Data.csproj" />
     <ProjectReference Include="..\..\src\RulerHub.Data\RulerHub.Data.csproj" />
   </ItemGroup>
 
