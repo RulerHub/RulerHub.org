@@ -1,4 +1,5 @@
-﻿@inject IItemService ItemService
+﻿@using RulerHub.Data.Services.Logistic.Items.Interfaces
+@inject IItemService ItemService
 
 @inject IDialogService DialogService
 
@@ -7,15 +8,27 @@
 @attribute [StreamRendering]
 
 <FluentToolbar Style="height: 48px;padding-inline-end: 10px; width: 100%;">
-    <FluentButton OnClick="Create" IconStart="@(new Icons.Regular.Size20.AddCircle())">Create</FluentButton>
-    <FluentButton aria-label="Print" IconEnd="@(new Icons.Regular.Size16.Print())" />
-    <FluentButton aria-label="Save" IconEnd="@(new Icons.Regular.Size16.Save())" />
-    <FluentButton aria-label="Export" IconEnd="@(new Icons.Regular.Size16.ArrowExport())" />
-    <FluentDivider Style="height: 24px;" Role="DividerRole.Presentation" Orientation="Orientation.Vertical"></FluentDivider>
-    <div class="search-box">
+    <FluentStack HorizontalAlignment="@HorizontalAlignment.Start"
+                 VerticalAlignment="@VerticalAlignment.Center">
+        <FluentGrid Spacing="4"
+                    AdaptiveRendering="true">
+            <FluentGridItem xs="2" sm="2">
+                <FluentButton OnClick="Create" IconStart="@(new Icons.Regular.Size20.AddCircle())" Title="New" />@* New</FluentButton> *@
+            </FluentGridItem>
+            <FluentGridItem xs="2" sm="2" HiddenWhen="GridItemHidden.SmAndDown">
+                <FluentButton aria-label="Print" IconEnd="@(new Icons.Regular.Size16.Print())" Title="Print" />
+            </FluentGridItem>
+            <FluentGridItem xs="2" sm="2" HiddenWhen="GridItemHidden.SmAndDown">
+                <FluentButton aria-label="Save" IconEnd="@(new Icons.Regular.Size16.DocumentPdf())" Title="Export pdf" />
+            </FluentGridItem>
+            <FluentGridItem xs="2" sm="2" HiddenWhen="GridItemHidden.SmAndDown">
+                <FluentButton aria-label="Export" IconEnd="@(new Icons.Regular.Size16.ArrowExport())" Title="Export" />
+            </FluentGridItem>
+        </FluentGrid>
+        <FluentDivider Style="height: 24px;" Role="DividerRole.Presentation" Orientation="Orientation.Vertical" />
         <FluentSearch Style="width: 100%;" type="search" Autofocus=true @bind-Value=nameFilter @oninput="HandleNameFilter" AfterBindValue="HandleClear" Placeholder="Item name..." />
-    </div>
-    <FluentDivider Style="height: 24px;" Role="DividerRole.Presentation" Orientation="Orientation.Vertical"></FluentDivider>
+    </FluentStack>
+
 </FluentToolbar>
 
 <FluentPaginator State="@pagination" />

@@ -1,0 +1,15 @@
+﻿@inherits LayoutComponentBase
+@layout RulerHub.Web.Components.Layout.MainLayout
+<div>
+    <FluentLabel Typo="Typography.PageTitle">Warehuose Oversee</FluentLabel>
+    <hr />
+    <FluentGrid>
+        <FluentGridItem sm="10">
+            @Body
+        </FluentGridItem>
+
+        <FluentGridItem sm="2">
+            <WarehouseManageNavMenu />
+        </FluentGridItem>
+    </FluentGrid>
+</div>

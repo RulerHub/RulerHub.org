@@ -1,0 +1,6 @@
+@wKeeper.api_HostAddress = http://localhost:5192
+
+GET {{wKeeper.api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
