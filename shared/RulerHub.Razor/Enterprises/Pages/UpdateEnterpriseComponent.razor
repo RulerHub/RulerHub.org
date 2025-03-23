@@ -1,5 +1,3 @@
-
-
 @inject IToastService ToastService
 
 @inject IEnterpriseService EnterpriseService
@@ -27,12 +25,12 @@
         <FluentGrid Spacing="2"
                     AdaptiveRendering="true">
 
-            <FluentGridItem xs="12">
-                <FluentTextArea Name="update_description"
+            <FluentGridItem xs="12" sm="12">
+                <FluentTextField Name="update_description"
                                  @bind-Value="@Content.Description"
                                  Label="Description"
                                  Required
-                                 Size="400" />
+                                 Size="800" />
             </FluentGridItem>
 
             <FluentGridItem xs="12" sm="6">

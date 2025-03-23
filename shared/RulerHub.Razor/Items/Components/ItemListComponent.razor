@@ -1,0 +1,41 @@
+﻿@inject IItemService ItemService
+
+@inject IDialogService DialogService
+
+@inject IToastService ToastService
+
+@attribute [StreamRendering]
+
+<FluentToolbar Style="height: 48px;padding-inline-end: 10px; width: 100%;">
+    <FluentButton OnClick="Create" IconStart="@(new Icons.Regular.Size20.AddCircle())">Create</FluentButton>
+    <FluentButton aria-label="Print" IconEnd="@(new Icons.Regular.Size16.Print())" />
+    <FluentButton aria-label="Save" IconEnd="@(new Icons.Regular.Size16.Save())" />
+    <FluentButton aria-label="Export" IconEnd="@(new Icons.Regular.Size16.ArrowExport())" />
+    <FluentDivider Style="height: 24px;" Role="DividerRole.Presentation" Orientation="Orientation.Vertical"></FluentDivider>
+    <div class="search-box">
+        <FluentSearch Style="width: 100%;" type="search" Autofocus=true @bind-Value=nameFilter @oninput="HandleNameFilter" AfterBindValue="HandleClear" Placeholder="Item name..." />
+    </div>
+    <FluentDivider Style="height: 24px;" Role="DividerRole.Presentation" Orientation="Orientation.Vertical"></FluentDivider>
+</FluentToolbar>
+
+<FluentPaginator State="@pagination" />
+
+<FluentDataGrid Id="itemsgrid"
+                Pagination="@pagination"
+                Items="@FilteredItems"
+                TGridItem="Item">
+
+    <PropertyColumn Title="Code" Property="@(c => c!.Code)" Sortable="true" Align="Align.Start" />
+    <PropertyColumn Title="Name" Property="@(c => c!.Name)" Sortable="true" Align="Align.End" TooltipText="@(c => c!.Name)" Tooltip="true" />
+    <PropertyColumn Title="Measure U" Property="@(c => c!.MeasureUnit)" Sortable="true" Align="Align.End" />
+    <PropertyColumn Title="Amount" Property="@(c => c!.Amount)" Sortable="true" Align="Align.End" />
+    <PropertyColumn Title="Price" Property="@(c => c!.Price)" Sortable="true" Align="Align.End" />
+
+    <TemplateColumn Title="Actions" Align="@Align.End">
+        <FluentButton OnClick="@(() => Oversee(context))" aria-label="edit" IconEnd="@(new Icons.Regular.Size16.Eye())" />
+        <FluentButton OnClick="@(() => Update(context))" aria-label="edit" IconEnd="@(new Icons.Regular.Size16.Edit())" />
+        <FluentButton OnClick="@(() => Delete(context.Id, context.Name))" aria-label="delete" IconEnd="@(new Icons.Regular.Size16.Delete())" />
+    </TemplateColumn>
+
+</FluentDataGrid>
+

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulerHub.Test", "test\Ruler
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RulerHub.Razor", "shared\RulerHub.Razor\RulerHub.Razor.csproj", "{A9FEFB4E-AC22-4459-BA20-38F892DFAE09}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "modules", "modules", "{ED2B649F-3B45-4CB1-A1CA-E4E02E04CDEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
