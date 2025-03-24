@@ -31,7 +31,7 @@ public class EnterpriseService : IEnterpriseService
         return await _context.Enterprises.Where(e => e.UserId == userId).ToListAsync();
     }
 
-    public async Task<Enterprise> GetEnterprise()
+    public async Task<Enterprise?> GetEnterprise()
     {
         var userId = GetUserId();
         if (userId == null) return null;

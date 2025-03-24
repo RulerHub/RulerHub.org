@@ -1,5 +1,3 @@
-using System.Security.Claims;
-using System.Text.Json;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Http.Extensions;
@@ -9,6 +7,8 @@ using Microsoft.Extensions.Primitives;
 using RulerHub.Shared.Entities.Identity;
 using RulerHub.Web.Components.Account.Pages;
 using RulerHub.Web.Components.Account.Pages.Manage;
+using System.Security.Claims;
+using System.Text.Json;
 
 namespace RulerHub.Web.Components.Account;
 

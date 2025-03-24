@@ -5,9 +5,14 @@ using RulerHub.Shared.Entities.Warehouses;
 
 namespace RulerHub.Data.Services.Logistic.Items.Implements;
 
-public class ItemService(ApplicationDbContext context) : IItemService
+public class ItemService : IItemService
 {
-    private readonly ApplicationDbContext _context = context;
+    private readonly ApplicationDbContext _context;
+
+    public ItemService(ApplicationDbContext context)
+    {
+        _context = context;
+    }
 
     public async Task<Item?> CreateAsync(Item model)
     {
@@ -24,7 +29,7 @@ public class ItemService(ApplicationDbContext context) : IItemService
         }
     }
 
-    public async Task<Item> DeleteAsync(int id)
+    public async Task<Item?> DeleteAsync(int id)
     {
         try
         {

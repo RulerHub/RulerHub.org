@@ -36,4 +36,23 @@ public partial class EnterpriseOverseeComponent : IDialogContentComponent
         }
 
     }
+
+    // create modal
+    private async Task Create()
+    {
+        var dialog = await DialogService.ShowDialogAsync<EnterpriseCreateComponent>(new DialogParameters()
+        {
+            Height = "400px",
+            Title = $"Create Warehouse",
+            PreventDismissOnOverlayClick = true,
+            PreventScroll = true,
+        });
+
+        var result = await dialog.Result;
+        if (!result.Cancelled && result.Data != null)
+        {
+            await GetEnterprise();
+            StateHasChanged();
+        }
+    }
 }
