@@ -1,9 +1,13 @@
 ﻿@using RulerHub.Data.Services.Logistic.Warehouses.Interfaces
+@using RulerHub.Data.Services.Tools
+
 @inject IWarehouseService WarehouseService
 
 @inject IDialogService DialogService
 
 @inject IToastService ToastService
+
+@inject PdfService PdfService
 
 @attribute [StreamRendering]
 
@@ -19,7 +23,7 @@
                 <FluentButton aria-label="Print" IconEnd="@(new Icons.Regular.Size16.Print())" Title="Print" />
             </FluentGridItem>
             <FluentGridItem xs="2" sm="2" HiddenWhen="GridItemHidden.SmAndDown">
-                <FluentButton aria-label="Save" IconEnd="@(new Icons.Regular.Size16.DocumentPdf())" Title="Export pdf" />
+                <FluentButton aria-label="Save" IconEnd="@(new Icons.Regular.Size16.DocumentPdf())" Title="Export pdf" OnClick="ExportToPdf" />
             </FluentGridItem>
             <FluentGridItem xs="2" sm="2" HiddenWhen="GridItemHidden.SmAndDown">
                 <FluentButton aria-label="Export" IconEnd="@(new Icons.Regular.Size16.ArrowExport())" Title="Export" />

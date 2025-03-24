@@ -9,17 +9,21 @@ using RulerHub.Data.Services.Logistic.Items.Implements;
 using RulerHub.Data.Services.Logistic.Items.Interfaces;
 using RulerHub.Data.Services.Logistic.Warehouses.Implements;
 using RulerHub.Data.Services.Logistic.Warehouses.Interfaces;
+using RulerHub.Data.Services.Tools;
 
 namespace RulerHub.Data;
 
 public static class DependencyInjection
 {
     public static IServiceCollection AddAplication(this IServiceCollection services)
-    {
+    {        
+        // TODO: Add services here
         services.AddScoped<IEnterpriseService, EnterpriseService>();
         // Logistic
         services.AddScoped<IItemService, ItemService>();
         services.AddScoped<IWarehouseService, WarehouseService>();
+        // Tools
+        services.AddScoped<PdfService>();
 
         return services;
     }

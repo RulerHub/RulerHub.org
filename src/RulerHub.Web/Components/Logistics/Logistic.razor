@@ -1,0 +1,50 @@
+﻿@page "/logistic/home"
+
+<FluentGrid Spacing="2"
+            AdaptiveRendering="true">
+
+    <FluentGridItem xs="12">
+        <FluentCard>
+            <FluentStack HorizontalAlignment="HorizontalAlignment.Start">
+                <FluentLabel Typo="Typography.HeroTitle">Logistic</FluentLabel>
+            </FluentStack>
+        </FluentCard>
+    </FluentGridItem>
+
+    <FluentGridItem xs="6" sm="3">
+        <FluentCard>
+            <PluginComponent Title="Compras"
+                             Badge="new"
+                             ButtonTitle="Resumen"
+                             NavString="/" />
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="6" sm="3">
+        <FluentCard>
+            <PluginComponent Title="Salidas"
+                             Badge="new"
+                             ButtonTitle="Resumen"
+                             NavString="/" />
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="6" sm="3">
+        <FluentCard>
+            <PluginComponent Title="Items"
+                             Badge="new"
+                             ButtonTitle="Resumen"
+                             NavString="/item/home" />
+        </FluentCard>
+    </FluentGridItem>
+    <FluentGridItem xs="6" sm="3">
+        <FluentCard>
+            <PluginComponent Title="Warehouse"
+                             Badge="new"
+                             ButtonTitle="Resumen"
+                             NavString="/warehouse/home" />
+        </FluentCard>
+    </FluentGridItem>
+</FluentGrid>
+
+@code {
+
+}
