@@ -21,7 +21,10 @@ else
 
         <FluentGridItem xs="12">
             <FluentCard>
-                <FluentLabel Typo="Typography.HeroTitle">@Enterprise.Name</FluentLabel>
+                <FluentStack HorizontalAlignment="HorizontalAlignment.SpaceBetween">
+                    <FluentLabel Typo="Typography.HeroTitle">@Enterprise.Name</FluentLabel>
+                    <FluentButton OnClick="@(() => Update(Enterprise))" aria-label="edit" IconEnd="@(new Icons.Regular.Size16.Edit())"> Editar </FluentButton>
+                </FluentStack>
             </FluentCard>
         </FluentGridItem>
 
@@ -30,54 +33,57 @@ else
         </FluentGridItem>
 
         <FluentGridItem xs="12">
-            <FluentAccordionItem Heading="Description">
-
-                <FluentButton OnClick="@(() => Update(Enterprise))" aria-label="edit" IconEnd="@(new Icons.Regular.Size16.Edit())"> Editar </FluentButton>
-
-                <div slot="end">
-                    <FluentLabel Typo="Typography.Subject">
-                        Register At:
-                        <small>@Enterprise.DateCreate</small>
-                    </FluentLabel>
-                </div>
+            <FluentCard>
                 <FluentLabel Typo="Typography.Subject">@Enterprise.Description</FluentLabel>
-            </FluentAccordionItem>
-        </FluentGridItem>
-
-        <FluentGridItem xs="12" sm="6" HiddenWhen="GridItemHidden.SmAndDown">
-            <FluentCard>
-                <p>Clients</p>
-                <p>Providers</p>
-                <p>Routes</p>
-                <p>Sponsors</p>
-                <p>Articles</p>
-                <p>Blogs</p>
-            </FluentCard>
-        </FluentGridItem>
-        <FluentGridItem xs="12" sm="6" HiddenWhen="GridItemHidden.SmAndDown">
-            <FluentCard>
-                <p>Warehouses</p>
-                <p>Departments</p>
-                <p>Store</p>
-                <p>Contract</p>
-                <p>Sales</p>
-                <p>Buys</p>
             </FluentCard>
         </FluentGridItem>
 
+        <FluentGridItem xs="12">
+            <FluentCard>
+                <FluentAccordionItem Heading="Oversee">
+                    <div slot="end">
+                        <FluentLabel Typo="Typography.Subject">
+                            Register At: <small>@Enterprise.DateCreate</small>
+                        </FluentLabel>
+                    </div>
+                    <FluentGrid Spacing="2"
+                                AdaptiveRendering="true">
+                        <FluentGridItem xs="12" sm="6">
+                            <FluentCard>
+                                <p>Clients</p>
+                                <p>Providers</p>
+                                <p>Routes</p>
+                                <p>Sponsors</p>
+                                <p>Articles</p>
+                                <p>Blogs</p>
+                            </FluentCard>
+                        </FluentGridItem>
+                        <FluentGridItem xs="12" sm="6">
+                            <FluentCard>
+                                <p>Warehouses</p>
+                                <p>Departments</p>
+                                <p>Store</p>
+                                <p>Contract</p>
+                                <p>Sales</p>
+                                <p>Buys</p>
+                            </FluentCard>
+                        </FluentGridItem>
+                    </FluentGrid>
+                </FluentAccordionItem>
+            </FluentCard>
+        </FluentGridItem>
+        
         <FluentGridItem xs="12" sm="6">
             <FluentCard>
                 <FluentLabel Typo="Typography.Subject">
-                    Register At:
-                    <small>@Enterprise.DateCreate</small>
+                    News <FluentBadge>5</FluentBadge>
                 </FluentLabel>
             </FluentCard>
         </FluentGridItem>
         <FluentGridItem xs="12" sm="6">
             <FluentCard>
                 <FluentLabel Typo="Typography.Subject">
-                    Register At:
-                    <small>@Enterprise.DateCreate</small>
+                    Actives <FluentBadge>10</FluentBadge>
                 </FluentLabel>
             </FluentCard>
         </FluentGridItem>
