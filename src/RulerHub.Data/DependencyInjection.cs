@@ -3,10 +3,15 @@ using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RulerHub.Data.Context;
+using RulerHub.Data.Repository.Generic;
+using RulerHub.Data.Repository.Logistic.Implements;
+using RulerHub.Data.Repository.Logistic.Interfaces;
 using RulerHub.Data.Services.Enterprises.Implements;
 using RulerHub.Data.Services.Enterprises.Interfaces;
 using RulerHub.Data.Services.Logistic.Items.Implements;
 using RulerHub.Data.Services.Logistic.Items.Interfaces;
+using RulerHub.Data.Services.Logistic.Providers.Implements;
+using RulerHub.Data.Services.Logistic.Providers.Interface;
 using RulerHub.Data.Services.Logistic.Warehouses.Implements;
 using RulerHub.Data.Services.Logistic.Warehouses.Interfaces;
 using RulerHub.Data.Services.Tools;
@@ -22,8 +27,12 @@ public static class DependencyInjection
         // Logistic
         services.AddScoped<IItemService, ItemService>();
         services.AddScoped<IWarehouseService, WarehouseService>();
+        services.AddScoped<IProviderService, ProviderService>();
         // Tools
         services.AddScoped<PdfService>();
+
+        services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+        services.AddScoped<IProviderRepository, ProviderRepository>();
 
         return services;
     }

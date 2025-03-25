@@ -8,5 +8,5 @@ public class Provider : Entity
     public string Name { get; set; } = string.Empty;
     public string? Description { get; set; } = string.Empty;
 
-    public List<Purchase>? Buys { get; set; } = [];
+    public List<Purchase>? Purchases { get; set; } = [];
 }
