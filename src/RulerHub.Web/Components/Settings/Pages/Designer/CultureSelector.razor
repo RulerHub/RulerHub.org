@@ -2,15 +2,10 @@
 
 <div>
     <select @bind="Culture">
-        <option value="es">Español</option>
-        <option value="en">English</option>
+        <option value="es-ES">Español</option>
+        <option value="en-US">English</option>
     </select>
 </div>
-
-@* <FluentMenuButton @ref=menuButton Text="Select your Language">
-    <FluentMenuItem Id="es">Español</FluentMenuItem>
-    <FluentMenuItem Id="en">English</FluentMenuItem>
-</FluentMenuButton> *@
 
 @code {
     private FluentMenuButton menuButton = new();
