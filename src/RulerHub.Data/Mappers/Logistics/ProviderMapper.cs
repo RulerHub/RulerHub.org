@@ -1,10 +1,5 @@
 ﻿using RulerHub.Shared.DataTransferObjects.Logistic.Providers;
 using RulerHub.Shared.Entities.Logistic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RulerHub.Data.Mappers.Logistics;
 

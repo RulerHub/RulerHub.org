@@ -1,23 +1,18 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.EntityFrameworkCore;
-using RulerHub.Data.Context;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Localization;
 using RulerHub.Data.Mappers.Logistics;
 using RulerHub.Data.Repository.Generic;
 using RulerHub.Data.Services.Logistic.Providers.Interface;
 using RulerHub.Shared.DataTransferObjects.Logistic.Providers;
 using RulerHub.Shared.Entities.Logistic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
+using RulerHub.Shared.Localization;
 
 namespace RulerHub.Data.Services.Logistic.Providers.Implements;
 
-public class ProviderService(IGenericRepository<Provider> repository) : IProviderService
+public class ProviderService(IGenericRepository<Provider> repository, IStringLocalizer<Language> Language) : IProviderService
 {
     private readonly IGenericRepository<Provider> _repository = repository;
+    private readonly IStringLocalizer<Language> _Language = Language;
 
     public async Task<ProviderDto?> CreateAsync(ProviderDto model)
     {
@@ -31,33 +26,103 @@ public class ProviderService(IGenericRepository<Provider> repository) : IProvide
             }
             else
             {
-                throw new TaskCanceledException("Error al crear");
+                throw new TaskCanceledException(_Language["E0001"]);
             }
         }
-        catch (Exception ex) 
+        catch (Exception ex)
         {
             Console.WriteLine(ex.ToString());
-            throw ex;
+            throw new Exception(_Language["E0002"], ex);
         }
     }
 
-    public Task<ProviderDto?> DeleteAsync(int id)
+    public async Task<ProviderDto?> DeleteAsync(int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var entity = await _repository.GetAll(p => p.Id == id).FirstOrDefaultAsync();
+            if (entity == null)
+            {
+                throw new KeyNotFoundException(_Language["E0003"]);
+            }
+
+            var result = await _repository.Delete(entity);
+            if (result)
+            {
+                return entity.ToProviderDto();
+            }
+            else
+            {
+                throw new TaskCanceledException(_Language["E0004"]);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+            throw new Exception(_Language["E0005"], ex);
+        }
     }
 
-    public Task<List<ProviderDto>> GetAsync()
+    public async Task<List<ProviderDto>> GetAsync()
     {
-        throw new NotImplementedException();
+        try
+        {
+            var entities = await _repository.GetAll().ToListAsync();
+            return [.. entities.Select(e => e.ToProviderDto())];
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+            throw new Exception(_Language["E0006"], ex);
+        }
     }
 
-    public Task<ProviderDto?> GetByIdAsync(int id)
+    public async Task<ProviderDto?> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var entity = await _repository.GetAll(p => p.Id == id).FirstOrDefaultAsync();
+            if (entity == null)
+            {
+                throw new KeyNotFoundException(_Language["E0003"]);
+            }
+            return entity.ToProviderDto();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+            throw new Exception(_Language["E0007"], ex);
+        }
     }
 
-    public Task<ProviderDto?> UpdateAsync(int id, ProviderDto model)
+    public async Task<ProviderDto?> UpdateAsync(int id, ProviderDto model)
     {
-        throw new NotImplementedException();
+        try
+        {
+            var entity = await _repository.GetAll(p => p.Id == id).FirstOrDefaultAsync();
+            if (entity == null)
+            {
+                throw new KeyNotFoundException(_Language["E0003"]);
+            }
+
+            entity.Code = model.Code;
+            entity.Name = model.Name;
+            entity.Description = model.Description;
+
+            var result = await _repository.Update(entity);
+            if (result)
+            {
+                return entity.ToProviderDto();
+            }
+            else
+            {
+                throw new TaskCanceledException(_Language["E0008"]);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.ToString());
+            throw new Exception(_Language["E0009"], ex);
+        }
     }
 }

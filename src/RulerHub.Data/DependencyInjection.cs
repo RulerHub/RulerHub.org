@@ -14,6 +14,8 @@ using RulerHub.Data.Services.Logistic.Providers.Implements;
 using RulerHub.Data.Services.Logistic.Providers.Interface;
 using RulerHub.Data.Services.Logistic.Warehouses.Implements;
 using RulerHub.Data.Services.Logistic.Warehouses.Interfaces;
+using RulerHub.Data.Services.Statistics.Implement;
+using RulerHub.Data.Services.Statistics.Interfaces;
 using RulerHub.Data.Services.Tools;
 
 namespace RulerHub.Data;
@@ -25,8 +27,9 @@ public static class DependencyInjection
         // TODO: Add services here
         services.AddLocalization();
         services.AddControllers();
-        
+
         services.AddScoped<IEnterpriseService, EnterpriseService>();
+        services.AddScoped<IStatisticsService, StatisticsService>();
         // Logistic
         services.AddScoped<IItemService, ItemService>();
         services.AddScoped<IWarehouseService, WarehouseService>();

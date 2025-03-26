@@ -21,4 +21,8 @@
     <ProjectReference Include="..\..\shared\RulerHub.Shared\RulerHub.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Services\Statistics\" />
+  </ItemGroup>
+
 </Project>

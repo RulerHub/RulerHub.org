@@ -123,4 +123,52 @@
   <data name="MenuSetting" xml:space="preserve">
     <value>Ajustes</value>
   </data>
+  <data name="E0001" xml:space="preserve">
+    <value> Error al crear el item.</value>
+  </data>
+  <data name="E0002" xml:space="preserve">
+    <value>Ocurrió un error al crear el item.</value>
+  </data>
+  <data name="E0003" xml:space="preserve">
+    <value>El item no fue encontrado.</value>
+  </data>
+  <data name="E0004" xml:space="preserve">
+    <value>Error al eliminar el item.</value>
+  </data>
+  <data name="E0005" xml:space="preserve">
+    <value>Error general al eliminar el item.</value>
+  </data>
+  <data name="E0006" xml:space="preserve">
+    <value>Error al obtener la lista de items.</value>
+  </data>
+  <data name="E0007" xml:space="preserve">
+    <value>Error al obtener el item por ID.</value>
+  </data>
+  <data name="E0008" xml:space="preserve">
+    <value>Error al actualizar el item.</value>
+  </data>
+  <data name="E0009" xml:space="preserve">
+    <value>Ocurrió un error al actualizar el item.</value>
+  </data>
+  <data name="E0010" xml:space="preserve">
+    <value>Error al obtener el total de proveedores.</value>
+  </data>
+  <data name="E0011" xml:space="preserve">
+    <value>Error al obtener el total de compras.</value>
+  </data>
+  <data name="E0012" xml:space="preserve">
+    <value>Error al obtener las estadísticas.</value>
+  </data>
+  <data name="E0013" xml:space="preserve">
+    <value>Error al obtener la empresa.</value>
+  </data>
+  <data name="E0014" xml:space="preserve">
+    <value>Error al obtener la empresa.</value>
+  </data>
+  <data name="E0015" xml:space="preserve">
+    <value>Error al actualizar la empresa.</value>
+  </data>
+  <data name="E0016" xml:space="preserve">
+    <value>Error al crear el almacén.</value>
+  </data>
 </root>

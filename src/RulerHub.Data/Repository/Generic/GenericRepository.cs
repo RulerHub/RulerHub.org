@@ -1,10 +1,5 @@
 ﻿using RulerHub.Data.Context;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RulerHub.Data.Repository.Generic;
 
@@ -23,7 +18,8 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
             _context.Set<T>().Add(entity);
             await _context.SaveChangesAsync();
             return entity;
-        } catch
+        }
+        catch
         {
             throw;
         }
@@ -45,8 +41,8 @@ public class GenericRepository<T> : IGenericRepository<T> where T : class
 
     public IQueryable<T> GetAll(Expression<Func<T, bool>>? filter = null)
     {
-        IQueryable<T> query = (filter == null)? 
-            _context.Set<T>(): 
+        IQueryable<T> query = (filter == null) ?
+            _context.Set<T>() :
             _context.Set<T>().Where(filter);
         return query;
     }

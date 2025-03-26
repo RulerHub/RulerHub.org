@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Components;
-using RulerHub.Data.Repository.Logistic.Implements;
 using RulerHub.Data.Repository.Logistic.Interfaces;
 using RulerHub.Shared.Entities.Logistic;
 

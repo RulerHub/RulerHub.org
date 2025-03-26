@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.FluentUI.AspNetCore.Components;
 using Microsoft.JSInterop;
-using RulerHub.Data.Services.Tools;
 using RulerHub.Shared.Entities.Warehouses;
 
 namespace RulerHub.Razor.Warehouses.Components;
@@ -57,7 +56,10 @@ public partial class WarehouseListComponent : IDialogContentComponent
             SecondaryAction = "Cancel",
             Width = "600px"
         };
-        await DialogService.ShowPanelAsync<WarehouseOverseePanel, Warehouse>(parameters);
+        await DialogService.ShowPanelAsync<WarehouseOverseePanel>(parameters, new DialogParameters<Warehouse>
+        {
+
+        });
     }
 
     // create modal
@@ -125,12 +127,12 @@ public partial class WarehouseListComponent : IDialogContentComponent
 
     private void ExportToPdf()
     {
-    //    if (_Warehouses == null) return;
+        //    if (_Warehouses == null) return;
 
-    //    var pdfBytes = PdfService.GeneratePdf(_Warehouses.ToList());
-    //    var base64 = Convert.ToBase64String(pdfBytes);
-    //    var fileName = "warehouses.pdf";
-    //    var url = $"data:application/pdf;base64,{base64}";
-    //    await JSRuntime.InvokeVoidAsync("downloadFileFromUrl", fileName, url);
+        //    var pdfBytes = PdfService.GeneratePdf(_Warehouses.ToList());
+        //    var base64 = Convert.ToBase64String(pdfBytes);
+        //    var fileName = "warehouses.pdf";
+        //    var url = $"data:application/pdf;base64,{base64}";
+        //    await JSRuntime.InvokeVoidAsync("downloadFileFromUrl", fileName, url);
     }
 }
