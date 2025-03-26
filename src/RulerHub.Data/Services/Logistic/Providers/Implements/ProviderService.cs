@@ -1,7 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using RulerHub.Data.Context;
+using RulerHub.Data.Mappers.Logistics;
+using RulerHub.Data.Repository.Generic;
 using RulerHub.Data.Services.Logistic.Providers.Interface;
+using RulerHub.Shared.DataTransferObjects.Logistic.Providers;
 using RulerHub.Shared.Entities.Logistic;
 using System;
 using System.Collections.Generic;
@@ -12,109 +15,49 @@ using System.Threading.Tasks;
 
 namespace RulerHub.Data.Services.Logistic.Providers.Implements;
 
-public class ProviderService(
-    ApplicationDbContext context,
-    IHttpContextAccessor httpContextAccessor) : IProviderService
+public class ProviderService(IGenericRepository<Provider> repository) : IProviderService
 {
-    private readonly ApplicationDbContext _context = context;
-    private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
+    private readonly IGenericRepository<Provider> _repository = repository;
 
-    private string? GetUserId()
-    {
-        return _httpContextAccessor.HttpContext?.User?.FindFirstValue(ClaimTypes.NameIdentifier);
-    }
-
-    public async Task<Provider?> CreateAsync(Provider model)
+    public async Task<ProviderDto?> CreateAsync(ProviderDto model)
     {
         try
         {
-            await _context.Providers.AddAsync(model);
-            await _context.SaveChangesAsync();
-            return model;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error creating provider: {ex.Message}");
-            return null;
-        }
-    }
-
-    public async Task<Provider?> DeleteAsync(int id)
-    {
-        try
-        {
-            var query = await GetByIdAsync(id);
-            if (query is null)
+            var entity = model.ToProvider();
+            var query = await _repository.Create(entity);
+            if (query.Id != 0)
             {
-                return null;
+                return query.ToProviderDto();
             }
-            if (query.Purchases.Count > 0)
+            else
             {
-                return null;
+                throw new TaskCanceledException("Error al crear");
             }
-            _context.Providers.Remove(query);
-            await _context.SaveChangesAsync();
-            return query;
         }
-        catch (Exception ex)
+        catch (Exception ex) 
         {
-            Console.WriteLine($"Error deleting provider: {ex.Message}");
-            return null;
+            Console.WriteLine(ex.ToString());
+            throw ex;
         }
     }
 
-    public async Task<List<Provider>> GetAsync()
+    public Task<ProviderDto?> DeleteAsync(int id)
     {
-        try
-        {
-            return await _context.Providers
-                .Include(c => c.Purchases)
-                .ToListAsync();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error obteniendo provider: {ex.Message}");
-            return [];
-        }
+        throw new NotImplementedException();
     }
 
-    public async Task<Provider?> GetByIdAsync(int id)
+    public Task<List<ProviderDto>> GetAsync()
     {
-        try
-        {
-            return await _context.Providers
-            .Include(c => c.Purchases)
-            .FirstOrDefaultAsync(c => c.Id == id);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error obteniendo provider: {ex.Message}");
-            return null;
-        }
-        
+        throw new NotImplementedException();
     }
 
-    public async Task<Provider?> UpdateAsync(int id, Provider model)
+    public Task<ProviderDto?> GetByIdAsync(int id)
     {
-        try
-        {
-            var query = await GetByIdAsync(id);
-            if (query is null)
-            {
-                return null;
-            }
+        throw new NotImplementedException();
+    }
 
-            query.Name = model.Name;
-            query.Description = model.Description;    
-            query.DateUpdate = DateTime.Now;
-
-            await _context.SaveChangesAsync();
-            return query;
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error updating provider: {ex.Message}");
-            return null;
-        }
+    public Task<ProviderDto?> UpdateAsync(int id, ProviderDto model)
+    {
+        throw new NotImplementedException();
     }
 }

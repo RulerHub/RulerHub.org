@@ -1,13 +1,12 @@
-﻿using RulerHub.Shared.Entities.Logistic;
-
+﻿using RulerHub.Shared.DataTransferObjects.Logistic.Providers;
 
 namespace RulerHub.Data.Services.Logistic.Providers.Interface;
 
 public interface IProviderService
 {
-    Task<List<Provider>> GetAsync();
-    Task<Provider?> GetByIdAsync(int id);
-    Task<Provider?> CreateAsync(Provider model);
-    Task<Provider?> UpdateAsync(int id, Provider model);
-    Task<Provider?> DeleteAsync(int id);
+    Task<List<ProviderDto>> GetAsync();
+    Task<ProviderDto?> GetByIdAsync(int id);
+    Task<ProviderDto?> CreateAsync(ProviderDto model);
+    Task<ProviderDto?> UpdateAsync(int id, ProviderDto model);
+    Task<ProviderDto?> DeleteAsync(int id);
 }
