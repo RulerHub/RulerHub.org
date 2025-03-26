@@ -21,8 +21,11 @@ namespace RulerHub.Data;
 public static class DependencyInjection
 {
     public static IServiceCollection AddAplication(this IServiceCollection services)
-    {        
+    {
         // TODO: Add services here
+        services.AddLocalization();
+        services.AddControllers();
+        
         services.AddScoped<IEnterpriseService, EnterpriseService>();
         // Logistic
         services.AddScoped<IItemService, ItemService>();

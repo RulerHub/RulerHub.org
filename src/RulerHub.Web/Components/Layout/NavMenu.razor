@@ -1,18 +1,25 @@
 ﻿@inject NavigationManager NavigationManager
 
+@inject IStringLocalizer<Language> Language
+
 <div class="navmenu">
     <input type="checkbox" title="Menu expand/collapse toggle" id="navmenu-toggle" class="navmenu-icon" />
     <label for="navmenu-toggle" class="navmenu-icon"><FluentIcon Value="@(new Icons.Regular.Size20.Navigation())" Color="Color.Fill" /></label>
     <nav class="sitenav" aria-labelledby="main-menu">
         <FluentNavMenu Id="main-menu" Collapsible="true" Width="250" Title="Navigation menu" @bind-Expanded="expanded" CustomToggle="true">
-            <FluentNavLink Href="/" Match="NavLinkMatch.All" Icon="@(new Icons.Regular.Size20.Home())" IconColor="Color.Accent">Home</FluentNavLink>
+            <FluentNavLink Href="/"
+                           Match="NavLinkMatch.All"
+                           Icon="@(new Icons.Regular.Size20.Home())"
+                           IconColor="Color.Accent">
+                @Language["MenuHome"]
+            </FluentNavLink>
             <AuthorizeView>
                 <Authorized>
                     <FluentNavLink Href="enterprise/home"
                                    Match="NavLinkMatch.All"
                                    Icon="@(new Icons.Regular.Size20.BuildingSkyscraper())"
                                    IconColor="Color.Accent">
-                        Enterprise Active
+                        @Language["MenuEnterprise"]
                     </FluentNavLink>
 
                     <FluentNavGroup Title="Logistica"
@@ -22,19 +29,19 @@
                                        Match="NavLinkMatch.All"
                                        Icon="@(new Icons.Regular.Size20.Home())"
                                        IconColor="Color.Accent">
-                            Contracts
+                            @Language["MenuContracts"]
                         </FluentNavLink>
                         <FluentNavLink Href="/"
                                        Match="NavLinkMatch.All"
                                        
                                        IconColor="Color.Accent">
-                            Providers
+                            @Language["MenuProviders"]
                         </FluentNavLink>
                         <FluentNavLink Href="warehouse/home"
                                        Match="NavLinkMatch.All"
                                        Icon="@(new Icons.Regular.Size20.Storage())"
                                        IconColor="Color.Accent">
-                            Warehouses Active
+                            @Language["MenuWarehouses"]
                         </FluentNavLink>
                     </FluentNavGroup>
 
@@ -44,13 +51,13 @@
                                        Match="NavLinkMatch.All"
                                        
                                        IconColor="Color.Accent">
-                            Talleres
+                            @Language["MenuTalleres"]
                         </FluentNavLink>
                         <FluentNavLink Href="/"
                                        Match="NavLinkMatch.All"
                                        
                                        IconColor="Color.Accent">
-                            Documentation
+                            @Language["MenuDocumentation"]
                         </FluentNavLink>
                     </FluentNavGroup>
 
@@ -58,12 +65,12 @@
                                    Match="NavLinkMatch.All"
                                    
                                    IconColor="Color.Accent">
-                        Blog
+                        @Language["MenuBlog"]
                     </FluentNavLink>
                     <FluentNavLink Href="settings"
                                    Icon="@(new Icons.Regular.Size20.Settings())"
                                    IconColor="Color.Accent">
-                        Settings
+                        @Language["MenuSettings"]
                     </FluentNavLink>
 
                 </Authorized>
@@ -72,7 +79,7 @@
                                    Match="NavLinkMatch.All"
                                    Icon="@(new Icons.Regular.Size20.News())"
                                    IconColor="Color.Accent">
-                        Blog
+                        @Language["MenuBlog"]
                     </FluentNavLink>
                 </NotAuthorized>
             </AuthorizeView>
