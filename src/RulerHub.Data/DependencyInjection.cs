@@ -4,10 +4,14 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RulerHub.Data.Context;
 using RulerHub.Data.Repository.Generic;
-using RulerHub.Data.Repository.Logistic.Implements;
-using RulerHub.Data.Repository.Logistic.Interfaces;
+using RulerHub.Data.Repository.Logistic.Categories.Implements;
+using RulerHub.Data.Repository.Logistic.Categories.Interfaces;
+using RulerHub.Data.Repository.Logistic.Providers.Implements;
+using RulerHub.Data.Repository.Logistic.Providers.Interfaces;
 using RulerHub.Data.Services.Enterprises.Implements;
 using RulerHub.Data.Services.Enterprises.Interfaces;
+using RulerHub.Data.Services.Logistic.Categories.Implements;
+using RulerHub.Data.Services.Logistic.Categories.Interfaces;
 using RulerHub.Data.Services.Logistic.Items.Implements;
 using RulerHub.Data.Services.Logistic.Items.Interfaces;
 using RulerHub.Data.Services.Logistic.Providers.Implements;
@@ -34,11 +38,14 @@ public static class DependencyInjection
         services.AddScoped<IItemService, ItemService>();
         services.AddScoped<IWarehouseService, WarehouseService>();
         services.AddScoped<IProviderService, ProviderService>();
+        services.AddScoped<ICategoryService, CategoryService>();
         // Tools
         services.AddScoped<PdfService>();
 
+        // Repository
         services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IProviderRepository, ProviderRepository>();
+        services.AddScoped<ICategoryRepository, CategoryRepository>();
 
         return services;
     }

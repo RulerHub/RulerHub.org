@@ -2,15 +2,16 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using RulerHub.Data.Context;
-using RulerHub.Data.Services.Logistic.Warehouses.Interfaces;
+using RulerHub.Data.Repository.Generic;
+using RulerHub.Data.Repository.Logistic.Warehouses.Interface;
 using RulerHub.Shared.Entities.Enterprises;
 using RulerHub.Shared.Entities.Warehouses;
 
-namespace RulerHub.Data.Services.Logistic.Warehouses.Implements;
+namespace RulerHub.Data.Repository.Logistic.Warehouses.Implements;
 
-public class WarehouseService(
+public class WarehouseRepository(
     ApplicationDbContext context,
-    IHttpContextAccessor httpContextAccessor) : IWarehouseService
+    IHttpContextAccessor httpContextAccessor) : GenericRepository<Warehouse>(context), IWarehouseRepository
 {
     private readonly ApplicationDbContext _context = context;
     private readonly IHttpContextAccessor _httpContextAccessor = httpContextAccessor;
@@ -28,13 +29,11 @@ public class WarehouseService(
             if (userId == null) return null;
             return await _context.Enterprises.FirstOrDefaultAsync(e => e.UserId == userId);
         }
-        catch (Exception ex)
+        catch
         {
-            Console.WriteLine($"Error getting enterprise: {ex.Message}");
-            return null;
+            throw;
         }
     }
-
     public async Task<Warehouse?> CreateAsync(Warehouse model)
     {
         try
@@ -50,13 +49,11 @@ public class WarehouseService(
             await _context.SaveChangesAsync();
             return model;
         }
-        catch (Exception ex)
+        catch
         {
-            Console.WriteLine($"Error creating warehouse: {ex.Message}");
-            return null;
+            throw;
         }
     }
-
     public async Task<Warehouse?> DeleteAsync(int id)
     {
         try
@@ -74,10 +71,9 @@ public class WarehouseService(
             await _context.SaveChangesAsync();
             return warehouse;
         }
-        catch (Exception ex)
+        catch
         {
-            Console.WriteLine($"Error deleting warehouse: {ex.Message}");
-            return null;
+            throw;
         }
     }
 
@@ -98,10 +94,9 @@ public class WarehouseService(
                 .Include(c => c.Items)
                 .ToListAsync();
         }
-        catch (Exception ex)
+        catch
         {
-            Console.WriteLine($"Error creating warehouse: {ex.Message}");
-            return [];
+            throw;
         }
     }
 
@@ -130,10 +125,9 @@ public class WarehouseService(
             await _context.SaveChangesAsync();
             return warehouse;
         }
-        catch (Exception ex)
+        catch
         {
-            Console.WriteLine($"Error updating warehouse: {ex.Message}");
-            return null;
+            throw;
         }
     }
 }

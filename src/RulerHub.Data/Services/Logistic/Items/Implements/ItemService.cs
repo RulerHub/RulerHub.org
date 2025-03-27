@@ -5,14 +5,9 @@ using RulerHub.Shared.Entities.Warehouses;
 
 namespace RulerHub.Data.Services.Logistic.Items.Implements;
 
-public class ItemService : IItemService
+public class ItemService(ApplicationDbContext context) : IItemService
 {
-    private readonly ApplicationDbContext _context;
-
-    public ItemService(ApplicationDbContext context)
-    {
-        _context = context;
-    }
+    private readonly ApplicationDbContext _context = context;
 
     public async Task<Item?> CreateAsync(Item model)
     {
@@ -58,7 +53,7 @@ public class ItemService : IItemService
         catch (Exception ex)
         {
             Console.WriteLine($"Error retrieving items: {ex.Message}");
-            return new List<Item>();
+            return [];
         }
     }
 

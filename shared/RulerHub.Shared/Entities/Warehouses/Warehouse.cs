@@ -1,7 +1,7 @@
-﻿using RulerHub.Shared.Entities.Abstractions;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using RulerHub.Shared.Entities.Abstractions;
 using RulerHub.Shared.Entities.Enterprises;
 using RulerHub.Shared.Entities.Sales;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace RulerHub.Shared.Entities.Warehouses;
 

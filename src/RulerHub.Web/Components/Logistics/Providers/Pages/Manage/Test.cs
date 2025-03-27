@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Components;
-using RulerHub.Data.Repository.Logistic.Interfaces;
+using RulerHub.Data.Repository.Logistic.Providers.Interfaces;
 using RulerHub.Shared.Entities.Logistic;
 
 namespace RulerHub.Web.Components.Logistics.Providers.Pages.Manage;

@@ -1,5 +1,5 @@
-﻿using RulerHub.Data.Context;
-using System.Linq.Expressions;
+﻿using System.Linq.Expressions;
+using RulerHub.Data.Context;
 
 namespace RulerHub.Data.Repository.Generic;
 

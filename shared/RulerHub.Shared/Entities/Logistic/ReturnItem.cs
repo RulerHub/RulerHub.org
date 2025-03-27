@@ -1,5 +1,5 @@
-﻿using RulerHub.Shared.Entities.Abstractions;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using RulerHub.Shared.Entities.Abstractions;
 
 namespace RulerHub.Shared.Entities.Logistic;
 

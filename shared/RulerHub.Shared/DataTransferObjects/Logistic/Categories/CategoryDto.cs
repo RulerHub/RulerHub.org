@@ -1,14 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using RulerHub.Shared.Entities.Abstractions;
+using RulerHub.Shared.DataTransferObjects.Logistic.Items;
 
-namespace RulerHub.Shared.Entities.Warehouses;
+namespace RulerHub.Shared.DataTransferObjects.Logistic.Categories;
 
-public class Category : Entity
+public class CategoryDto
 {
     public string Name { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
 
-    public List<Item> Items { get; set; } = [];
+    public List<ItemDto> Items { get; set; } = [];
 
     [Column(TypeName = "decimal(8, 2)")]
     public decimal CategoryPrice { get; set; }

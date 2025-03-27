@@ -1,10 +1,10 @@
+using System.Security.Claims;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using RulerHub.Data.Context;
 using RulerHub.Data.Services.Enterprises.Implements;
 using RulerHub.Shared.Entities.Enterprises;
-using System.Security.Claims;
 
 namespace RulerHub.Test.Enterprises
 {

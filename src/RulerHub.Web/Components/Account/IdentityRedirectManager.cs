@@ -1,5 +1,5 @@
-using Microsoft.AspNetCore.Components;
 using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Components;
 
 namespace RulerHub.Web.Components.Account;
 

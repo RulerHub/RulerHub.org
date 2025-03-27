@@ -2,27 +2,27 @@
 using Microsoft.Extensions.Localization;
 using RulerHub.Data.Mappers.Logistics;
 using RulerHub.Data.Repository.Generic;
-using RulerHub.Data.Services.Logistic.Providers.Interface;
-using RulerHub.Shared.DataTransferObjects.Logistic.Providers;
-using RulerHub.Shared.Entities.Logistic;
+using RulerHub.Data.Services.Logistic.Categories.Interfaces;
+using RulerHub.Shared.DataTransferObjects.Logistic.Categories;
+using RulerHub.Shared.Entities.Warehouses;
 using RulerHub.Shared.Localization;
 
-namespace RulerHub.Data.Services.Logistic.Providers.Implements;
+namespace RulerHub.Data.Services.Logistic.Categories.Implements;
 
-public class ProviderService(IGenericRepository<Provider> repository, IStringLocalizer<Language> Language) : IProviderService
+public class CategoryService(IGenericRepository<Category> repository, IStringLocalizer<Language> Language) : ICategoryService
 {
-    private readonly IGenericRepository<Provider> _repository = repository;
+    private readonly IGenericRepository<Category> _repository = repository;
     private readonly IStringLocalizer<Language> _Language = Language;
 
-    public async Task<ProviderDto?> CreateAsync(ProviderDto model)
+    public async Task<CategoryDto?> CreateAsync(CategoryDto model)
     {
         try
         {
-            var entity = model.ToProvider();
-            var query = await _repository.Create(entity);
+            var entity = model.ToCategory();
+            var query = await _repository.Create((Category)entity);
             if (query.Id != 0)
             {
-                return query.ToProviderDto();
+                return query.ToCategoryDto();
             }
             else
             {
@@ -36,7 +36,7 @@ public class ProviderService(IGenericRepository<Provider> repository, IStringLoc
         }
     }
 
-    public async Task<ProviderDto?> DeleteAsync(int id)
+    public async Task<CategoryDto?> DeleteAsync(int id)
     {
         try
         {
@@ -44,7 +44,7 @@ public class ProviderService(IGenericRepository<Provider> repository, IStringLoc
             var result = await _repository.Delete(entity);
             if (result)
             {
-                return entity.ToProviderDto();
+                return entity.ToCategoryDto();
             }
             else
             {
@@ -58,12 +58,12 @@ public class ProviderService(IGenericRepository<Provider> repository, IStringLoc
         }
     }
 
-    public async Task<List<ProviderDto>> GetAsync()
+    public async Task<List<CategoryDto>> GetAsync()
     {
         try
         {
             var entities = await _repository.GetAll().ToListAsync();
-            return [.. entities.Select(e => e.ToProviderDto())];
+            return [.. entities.Select(e => e.ToCategoryDto())];
         }
         catch (Exception ex)
         {
@@ -72,12 +72,12 @@ public class ProviderService(IGenericRepository<Provider> repository, IStringLoc
         }
     }
 
-    public async Task<ProviderDto?> GetByIdAsync(int id)
+    public async Task<CategoryDto?> GetByIdAsync(int id)
     {
         try
         {
             var entity = await _repository.GetAll(p => p.Id == id).FirstOrDefaultAsync();
-            return entity == null ? throw new KeyNotFoundException(_Language["E0003"]) : entity.ToProviderDto();
+            return entity == null ? throw new KeyNotFoundException(_Language["E0003"]) : entity.ToCategoryDto();
         }
         catch (Exception ex)
         {
@@ -86,19 +86,18 @@ public class ProviderService(IGenericRepository<Provider> repository, IStringLoc
         }
     }
 
-    public async Task<ProviderDto?> UpdateAsync(int id, ProviderDto model)
+    public async Task<CategoryDto?> UpdateAsync(int id, CategoryDto model)
     {
         try
         {
             var entity = await _repository.GetAll(p => p.Id == id).FirstOrDefaultAsync() ?? throw new KeyNotFoundException(_Language["E0003"]);
-            entity.Code = model.Code;
             entity.Name = model.Name;
             entity.Description = model.Description;
 
             var result = await _repository.Update(entity);
             if (result)
             {
-                return entity.ToProviderDto();
+                return entity.ToCategoryDto();
             }
             else
             {

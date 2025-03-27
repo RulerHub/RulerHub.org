@@ -1,5 +1,5 @@
-﻿using RulerHub.Shared.DataTransferObjects.Logistic.Purchases;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using RulerHub.Shared.DataTransferObjects.Logistic.Purchases;
 
 namespace RulerHub.Shared.DataTransferObjects.Logistic.Providers;
 

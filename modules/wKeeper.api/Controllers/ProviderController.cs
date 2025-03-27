@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RulerHub.Data.Services.Logistic.Providers.Interface;
 using RulerHub.Shared.DataTransferObjects.Generic;
 using RulerHub.Shared.DataTransferObjects.Logistic.Providers;
@@ -67,7 +66,7 @@ public class ProviderController(IProviderService service) : ControllerBase
 
     [HttpPost]
     [Route("{id}")]
-    public async Task<IActionResult> Update(int id, [FromBody]ProviderDto model)
+    public async Task<IActionResult> Update(int id, [FromBody] ProviderDto model)
     {
         var response = new ResponseDto<ProviderDto>();
         try
