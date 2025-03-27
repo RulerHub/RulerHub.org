@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using Microsoft.FluentUI.AspNetCore.Components;
 using Microsoft.JSInterop;
+using RulerHub.Razor.Items.Components;
 using RulerHub.Shared.Entities.Warehouses;
 
 namespace RulerHub.Razor.Warehouses.Components;
@@ -56,10 +57,7 @@ public partial class WarehouseListComponent : IDialogContentComponent
             SecondaryAction = "Cancel",
             Width = "600px"
         };
-        await DialogService.ShowPanelAsync<WarehouseOverseePanel>(parameters, new DialogParameters<Warehouse>
-        {
-
-        });
+        await DialogService.ShowPanelAsync<WarehouseOverseePanel, Warehouse>(parameters);
     }
 
     // create modal
@@ -125,7 +123,7 @@ public partial class WarehouseListComponent : IDialogContentComponent
         ToastService.ShowWarning($"Panel closed");
     }
 
-    private void ExportToPdf()
+    private static void ExportToPdf()
     {
         //    if (_Warehouses == null) return;
 

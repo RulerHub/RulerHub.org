@@ -1,19 +1,38 @@
 ﻿@inherits LayoutComponentBase
 @layout RulerHub.Web.Components.Layout.MainLayout
 
-@* @inject IStringLocalizer<Lang> local *@
-
-<FluentLabel Typo="Typography.H1">Settings</FluentLabel>
-
 <div>
-    <FluentDivider />
-    <FluentGrid>
-
-        <FluentGridItem sm="2">
-            <LogisticManageNavMenu />
+    <FluentGrid Spacing="2"
+                AdaptiveRendering="true">
+        <FluentGridItem xs="12">
+            <FluentToolbar Style="height: 48px;padding-inline-end: 10px; width: 100%;">
+                <FluentStack HorizontalAlignment="@HorizontalAlignment.Start"
+                             VerticalAlignment="@VerticalAlignment.Center">
+                    <FluentGrid Spacing="4"
+                                AdaptiveRendering="true">
+                        <FluentGridItem xs="2" sm="2">
+                            <FluentButton IconStart="@(new Icons.Regular.Size20.AddCircle())" Title="New" />@* New</FluentButton> *@
+                        </FluentGridItem>
+                        <FluentGridItem xs="2" sm="2" HiddenWhen="GridItemHidden.SmAndDown">
+                            <FluentButton aria-label="Print" IconEnd="@(new Icons.Regular.Size16.Print())" Title="Print" />
+                        </FluentGridItem>
+                        <FluentGridItem xs="2" sm="2" HiddenWhen="GridItemHidden.SmAndDown">
+                            <FluentButton aria-label="Save" IconEnd="@(new Icons.Regular.Size16.DocumentPdf())" Title="Export pdf" />
+                        </FluentGridItem>
+                        <FluentGridItem xs="2" sm="2" HiddenWhen="GridItemHidden.SmAndDown">
+                            <FluentButton aria-label="Export" IconEnd="@(new Icons.Regular.Size16.ArrowExport())" Title="Export" />
+                        </FluentGridItem>
+                    </FluentGrid>
+                    <FluentDivider Style="height: 24px;" Role="DividerRole.Presentation" Orientation="Orientation.Vertical" />
+                </FluentStack>
+            </FluentToolbar>
         </FluentGridItem>
 
-        <FluentGridItem sm="10">
+        <FluentGridItem xs="12">
+            <FluentDivider />
+        </FluentGridItem>
+
+        <FluentGridItem xs="12">
             @Body
         </FluentGridItem>
     </FluentGrid>
